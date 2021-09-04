@@ -1,0 +1,2 @@
+# easy-shop
+# EasyCard
