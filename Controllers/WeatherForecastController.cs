@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EasyCard.Models.Context;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,12 @@ namespace EasyCard.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
+            using(SiteContext db = new SiteContext())
+            {
+                db.Mailing.Add(new Models.Mailing() { Date = DateTime.Now, Email = "asdsa" });
+                db.SaveChanges();
+                var b = db.Mailing.ToList();
+            }
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {

@@ -19,7 +19,7 @@ namespace EasyCard.Models.Context
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=helloappdb;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Data Source=SQL5103.site4now.net;Initial Catalog=db_a79693_shop;User Id=db_a79693_shop_admin;Password=DataBaseForTest1");
         }
     }
 }
