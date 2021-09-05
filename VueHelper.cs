@@ -14,7 +14,7 @@ namespace EasyCard
 {
     public static class VueHelper
     {
-        private static int Port { get; } = 8083;
+        private static int Port { get; } = 8085;
         private static Uri DevelopmentServerEndpoint { get; } = new Uri($"http://localhost:{Port}");
         private static TimeSpan Timeout { get; } = TimeSpan.FromSeconds(30);
         // done message of 'npm run serve' command.

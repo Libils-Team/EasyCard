@@ -4,7 +4,7 @@ project.lock.json
 .DS_Store
 *.pyc
 nupkg/
-
+VueHelper.cs
 # Visual Studio Code
 .vscode
 

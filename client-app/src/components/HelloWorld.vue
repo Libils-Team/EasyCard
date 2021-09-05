@@ -73,15 +73,13 @@
 </template>
 
 <script>
-    import axios from "axios";
     export default {
         name: "HelloWorld",
         props: {
             msg: String,
         },
-        created() {
-            const Result = axios.get("/weatherforecast");
-            console.log(Result);
+        async created() {
+            console.log(await this.axios.get('/weatherForecast'));
         }
     };
 </script>
