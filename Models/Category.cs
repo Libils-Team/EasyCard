@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace EasyCard.Models
 {
-    public class Catrgory
+    public class Category
     {
         public int Id { get; set; }
-        public string CatrgoryName { get; set; }
-        public int ChildId { get; set; }
+        public string CategoryName { get; set; }
+        public Category ParentCategory { get; set; }
     }
 }

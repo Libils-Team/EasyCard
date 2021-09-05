@@ -9,6 +9,10 @@ namespace EasyCard.Models.Context
     public class SiteContext:DbContext
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<MainSlider> MainSlider { get; set; }
+        public DbSet<Mailing> Mailing { get; set; }
+        public DbSet<ProductBrand> Brands { get; set; }
+
         public SiteContext()
         {
             Database.EnsureCreated();
