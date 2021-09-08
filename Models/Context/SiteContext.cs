@@ -12,6 +12,9 @@ namespace EasyCard.Models.Context
         public DbSet<MainSlider> MainSlider { get; set; }
         public DbSet<Mailing> Mailing { get; set; }
         public DbSet<ProductBrand> Brands { get; set; }
+        public DbSet<Category> Categories { get; set; }
+
+        public DbSet<Product> Product { get; set; }
 
         public SiteContext()
         {

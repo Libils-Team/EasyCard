@@ -79,7 +79,7 @@
             msg: String,
         },
         async created() {
-            console.log(await this.axios.get('/weatherForecast'));
+            console.log(await this.axios.get('api/GetCategory'));
         }
     };
 </script>
