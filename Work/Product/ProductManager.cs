@@ -9,11 +9,14 @@ namespace EasyCard.Work.Product
 {
     public static class ProductManager
     {
-        public static List<Models.Product> Get(int id)
+        public static List<Models.Product> Get(int id, int offset = 0, int take = 0)
         {
-            using(SiteContext db = new SiteContext())
+            using (SiteContext db = new SiteContext())
             {
-                return db.Product.Include("ProductCategory").Where(i => i.ProductCategory.Id == id).ToList();
+                if (take == 0)
+                    return db.Product.Include("ProductCategory").Where(i => i.ProductCategory.Id == id).Skip(offset).ToList();
+                else
+                    return db.Product.Include("ProductCategory").Where(i => i.ProductCategory.Id == id).Skip(offset).Take(take).ToList();
             }
         }
     }

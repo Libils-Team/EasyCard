@@ -14,7 +14,8 @@ namespace EasyCard.Work
         {
             using (SiteContext db = new SiteContext())
             {
-                return db.Categories.Include("SubCategories").Where(i=>i.MainCategory).Include("SubCategories").ToList();
+                var Categories = db.Categories.Include(i=>i.SubCategories).ToList();
+                return Categories.Where(i=>i.MainCategory).ToList();
             }
         }
 
