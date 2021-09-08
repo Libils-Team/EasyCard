@@ -29,9 +29,9 @@ namespace EasyCard.Controllers
 
         [Route("GetProducts")]
         [HttpGet]
-        public JsonResult GetProducts(int id)
+        public JsonResult GetProducts(int id, int offset = 0, int take = 0)
         {
-            return Json(ProductManager.Get(id));
+            return Json(ProductManager.Get(id, offset, take));
         }
 
         [Route("AddCategory")]
