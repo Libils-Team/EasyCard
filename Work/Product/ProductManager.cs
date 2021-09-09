@@ -13,10 +13,16 @@ namespace EasyCard.Work.Product
         {
             using (SiteContext db = new SiteContext())
             {
+                if (take < 0 || offset < 0)
+                    return new List<Models.Product>();
                 if (take == 0)
-                    return db.Product.Include("ProductCategory").Where(i => i.ProductCategory.Id == id).Skip(offset).ToList();
+                {
+                    return db.Product.AsNoTracking().Include("ProductCategory").Where(i => i.ProductCategory.Id == id).Skip(offset).ToList();
+                }
                 else
-                    return db.Product.Include("ProductCategory").Where(i => i.ProductCategory.Id == id).Skip(offset).Take(take).ToList();
+                {
+                    return db.Product.AsNoTracking().Include("ProductCategory").Where(i => i.ProductCategory.Id == id).OrderBy(p=>p.Name).Skip(offset).Take(take).ToList();
+                }
             }
         }
     }
