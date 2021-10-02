@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace EasyCard.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    [Route("api/[controller]")]
+    public class WeatherForecastController : Controller
     {
         private static readonly string[] Summaries = new[]
         {
@@ -25,22 +24,17 @@ namespace EasyCard.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        [Route("get")]
+        public string[] Get()
         {
-            using(SiteContext db = new SiteContext())
-            {
-                db.Mailing.Add(new Models.Mailing() { Date = DateTime.Now, Email = "asdsa" });
-                db.SaveChanges();
-                var b = db.Mailing.ToList();
-            }
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+            return Summaries;
+        }
+
+        [Route("GetCategory")]
+        [HttpGet]
+        public string GetCategory()
+        {
+            return "asdasd";
         }
     }
 }

@@ -9,6 +9,7 @@ namespace EasyCard.Models
     {
         public int Id { get; set; }
         public string CategoryName { get; set; }
-        public Category ParentCategory { get; set; }
+        public bool MainCategory { get; set; }
+        public List<Category> SubCategories { get; set; }
     }
 }
