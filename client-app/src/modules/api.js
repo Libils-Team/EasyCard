@@ -2,8 +2,8 @@ import axios from "axios";
 import { getCookie } from "./cookies";
 import Router from "@/router";
 
-const baseURL = "https://testmm.mindandmachine.ru";
-const apiPrefix = "/rest_api/";
+const baseURL = "http://127.0.0.1";
+const apiPrefix = "/api/";
 
 let csrfToken = "";
 
@@ -29,10 +29,9 @@ export const API_REQUEST = async (
       })
       .catch((e) => {
         if (e.response?.status === 401) {
-          // unauthorized
           resolve(e);
           if (Router.currentRoute.path !== "/login") {
-            Router.push("/login").catch(() => {});
+            Router.push("/login");
             console.warn(
               '[API_REQUEST] Redirected to "Login". Reason "Unauthorized"'
             );
