@@ -10,3 +10,5 @@ import "@/assets/scss/_config.scss";
 
 createApp(App).use(VueAxios, axios).use(store).use(router).mount("#app");
 // Test 
+
+// test 2
