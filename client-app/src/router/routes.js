@@ -1,5 +1,3 @@
-import { createRouter, createWebHistory } from "vue-router";
-
 const routes = [
   {
     path: "/",
@@ -10,6 +8,9 @@ const routes = [
     path: "/search",
     name: "Search",
     component: () => import("../views/Search.vue"),
+    meta: {
+      requiresAuth: false,
+    },
   },
   {
     path: "/cart",
@@ -21,11 +22,11 @@ const routes = [
     name: "Catalog",
     component: () => import("../views/Catalog.vue"),
   },
+  {
+    path: "/:catchAll(.*)",
+    name: "NotFound",
+    component: () => import("../views/404.vue"),
+  },
 ];
 
-const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes,
-});
-
-export default router;
+export default routes;
