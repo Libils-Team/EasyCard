@@ -8,6 +8,9 @@ const routes = [
     path: "/search",
     name: "Search",
     component: () => import("../views/Search.vue"),
+    meta: {
+      requiresAuth: false,
+    },
   },
   {
     path: "/cart",
@@ -23,9 +26,6 @@ const routes = [
     path: "/:catchAll(.*)",
     name: "NotFound",
     component: () => import("../views/404.vue"),
-    meta: {
-      requiresAuth: false,
-    },
   },
 ];
 
