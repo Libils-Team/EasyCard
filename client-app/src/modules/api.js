@@ -8,15 +8,19 @@ const apiPrefix = "/api/";
 let csrfToken = "";
 
 export const API_REQUEST = async (
-  params = {},
   command,
+  params = {},
   serializer = "JSON"
 ) => {
   return new Promise((resolve) => {
     axios({
-      url: baseURL + apiPrefix + command.url,
-      method: command.method,
-      data: params.body,
+      url: baseURL + apiPrefix + (command?.url || command),
+      method: !command?.method
+        ? Object.keys(params).length
+          ? "post"
+          : "get"
+        : command.method,
+      data: params?.body || {},
       headers: {
         "X-CSRFToken": csrfToken,
         "Content-Type":
@@ -30,12 +34,7 @@ export const API_REQUEST = async (
       .catch((e) => {
         if (e.response?.status === 401) {
           resolve(e);
-          if (Router.currentRoute.path !== "/login") {
-            Router.push("/login");
-            console.warn(
-              '[API_REQUEST] Redirected to "Login". Reason "Unauthorized"'
-            );
-          }
+          if (Router.currentRoute.path !== "/login") Router.push("/login");
         }
       });
   });
