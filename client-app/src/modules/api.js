@@ -1,11 +1,8 @@
 import axios from "axios";
-import { getCookie } from "./cookies";
 import Router from "@/router";
 
 const baseURL = "http://127.0.0.1";
 const apiPrefix = "/api/";
-
-let csrfToken = "";
 
 export const API_REQUEST = async (
   command,
@@ -22,14 +19,13 @@ export const API_REQUEST = async (
         : command.method,
       data: params?.body || {},
       headers: {
-        "X-CSRFToken": csrfToken,
+        // "X-CSRFToken": csrfToken,
         "Content-Type":
           serializer === "JSON" ? "application/json" : "multipart/form-data",
       },
     })
       .then(async (response) => {
         resolve(response.data);
-        csrfToken = await getCookie({ url: baseURL, name: "csrftoken" });
       })
       .catch((e) => {
         if (e.response?.status === 401) {

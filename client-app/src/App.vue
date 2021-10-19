@@ -5,5 +5,10 @@
 </template>
 
 <script>
-export default {};
+export default {
+  created() {
+    // eslint-disable-next-line no-undef
+    console.log(procces.env.test);
+  },
+};
 </script>

@@ -1,6 +1,6 @@
 export default {
   layouts: {
-    submenu: {
+    navigationMenu: {
       search: {
         text: "Поиск по сайту",
       },
