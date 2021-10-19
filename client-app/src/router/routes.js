@@ -8,9 +8,6 @@ const routes = [
     path: "/search",
     name: "Search",
     component: () => import("../views/Search.vue"),
-    meta: {
-      requiresAuth: false,
-    },
   },
   {
     path: "/cart",
