@@ -1,8 +1,9 @@
 import { createStore } from "vuex";
+import app from "@/store/modules/app";
 
 export default createStore({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {},
+  modules: {
+    app,
+  },
+  namespaced: true,
 });
