@@ -1,10 +1,7 @@
 import { createI18n } from "vue-i18n/index";
 import messages from "@/i18n";
-import { locale } from "@/modules/language";
 
-const i18n = createI18n({
-  locale: localStorage.getItem("locale") || locale,
+export default createI18n({
+  locale: "ru",
   messages,
 });
-
-export default { i18n };
