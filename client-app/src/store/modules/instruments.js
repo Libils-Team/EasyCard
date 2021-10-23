@@ -12,6 +12,9 @@ const actions = {
   activeModal({ commit }, modal) {
     commit("SET_MODAL", modal);
   },
+  offAll({ commit }) {
+    commit("SET_MODAL", null);
+  }
 };
 
 export default {

@@ -21,6 +21,10 @@ const actions = {
             root: true,
           });
       });
+    } else {
+      dispatch("instruments/offAll", {}, {
+        root: true,
+      });
     }
   },
 };
