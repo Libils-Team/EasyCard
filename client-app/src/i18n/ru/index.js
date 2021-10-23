@@ -9,50 +9,50 @@ export default {
       menu: [
         [
           {
-            type: "call-modal",
-            icon: "fas fa-map-marker-alt",
-            label: "{city}",
-            path: "?modal=navbar-ChangeCity",
-          },
-        ],
-        [
-          {
             type: "link",
-            label: "Магазины",
-            path: paths.shops,
-          },
-          {
-            type: "dropdown",
-            label: "Покупателям",
-            dropdownMenu: [
-              {
-                type: "link",
-                label: "Как оформить заказ",
-                path: paths.howToOrder,
-              },
-              {
-                type: "link",
-                label: "Доставка",
-                path: paths.delivery,
-              },
-            ],
+            label: "Каталог",
+            path: paths.catalog,
           },
           {
             type: "link",
-            label: "Юридическим лицам",
-            path: paths.entity,
+            label: "О компании",
+            path: paths.aboutUs,
+          },
+          {
+            type: "link",
+            label: "Контакты",
+            path: paths.contact,
+          },
+          {
+            type: "link",
+            label: "Доставка",
+            path: paths.delivery,
+          },
+          {
+            type: "link",
+            label: "Оплата",
+            path: paths.payment,
+          },
+          {
+            type: "link",
+            label: "Личный кабинет",
+            path: paths.account,
+          },
+          {
+            type: "link",
+            label: "Блог",
+            path: paths.blog,
           },
         ],
         [
           {
             type: "string",
-            stringFormat: ["bold"],
-            icon: "fas fa-phone",
-            label: "8-800-77-07-999",
+            label: "Доставка с 8:00 до 23:00",
           },
           {
-            type: "string",
-            label: "(c 10:00 до 05:00)",
+            type: "link",
+            label: "+7(800) 800-80-80",
+            path: "tel:78008008080",
           },
         ],
       ],

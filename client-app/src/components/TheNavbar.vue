@@ -1,7 +1,7 @@
 <template>
   <section>
-    <TheNavbarTop />
-    <TheNavbarMain />
+    <TheNavbarTop :menu="menuTop" />
+    <TheNavbarMain :menu="menuMain" />
   </section>
 </template>
 
@@ -13,6 +13,17 @@ export default {
   components: {
     TheNavbarTop,
     TheNavbarMain,
+  },
+  computed: {
+    locale() {
+      return this.$store.getters["app/getLocale"];
+    },
+    menuMain() {
+      return this.$i18n.messages[this.locale].header.navbarMain.menu;
+    },
+    menuTop() {
+      return this.$i18n.messages[this.locale].header.navbarTop.menu;
+    },
   },
 };
 </script>
