@@ -1,5 +1,5 @@
 <template>
-  <header class="header-top">
+  <header class="header header-top">
     <div class="inner">
       <div class="container">
         <NavbarMenu

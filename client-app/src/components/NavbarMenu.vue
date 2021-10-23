@@ -1,7 +1,7 @@
 <template>
   <nav :class="innerClasses">
-    <ul v-for="item in menu" :key="JSON.stringify(item)">
-      <li v-for="li in item" :key="JSON.stringify(li)">
+    <ul class="header-menu" v-for="item in menu" :key="JSON.stringify(item)">
+      <li class="mr-3" v-for="li in item" :key="JSON.stringify(li)">
         <NavbarMenuItem :item="li" />
       </li>
     </ul>

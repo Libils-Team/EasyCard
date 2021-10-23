@@ -1,13 +1,9 @@
-<template>
-  Я модальное окно
-</template>
+<template>Я модальное окно</template>
 
 <script>
 export default {
-    name: "ModalChangeCity",
-}
+  name: "ModalChangeCity",
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

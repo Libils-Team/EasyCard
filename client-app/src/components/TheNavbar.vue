@@ -1,5 +1,5 @@
 <template>
-  <section class="headers">
+  <section>
     <TheNavbarTop />
     <TheNavbarMain />
   </section>
