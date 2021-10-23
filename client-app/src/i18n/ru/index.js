@@ -12,14 +12,14 @@ export default {
             type: "call-modal",
             icon: "map-marker",
             label: "{city}",
-            path: "?modal=navbar-ChooseCity",
+            path: "?modal=navbar-ChangeCity",
           },
         ],
         [
           {
             type: "link",
             label: "Магазины",
-            path: "@:layout.paths.shops",
+            path: paths.shops,
           },
           {
             type: "dropdown",
@@ -28,19 +28,19 @@ export default {
               {
                 type: "link",
                 label: "Как оформить заказ",
-                path: "@:layout.paths.howToOrder",
+                path: paths.howToOrder,
               },
               {
                 type: "link",
                 label: "Доставка",
-                path: "@:layout.paths.delivery",
+                path: paths.delivery,
               },
             ],
           },
           {
             type: "link",
             label: "Юридическим лицам",
-            path: "@:layout.paths.entity",
+            path: paths.entity,
           },
         ],
         [
@@ -63,7 +63,7 @@ export default {
           {
             type: "link-logo",
             image: "logo-main",
-            path: "@:layout.paths.home",
+            path: paths.home,
           },
           {
             type: "search",
@@ -73,19 +73,19 @@ export default {
             type: "link",
             label: "Сравнить",
             icon: "graph",
-            path: "@:layout.paths.compare",
+            path: paths.compare,
           },
           {
             type: "link",
             label: "Избранное",
             icon: "heart",
-            path: "@:layout.paths.favorites",
+            path: paths.favorites,
           },
           {
             type: "link",
             label: "Корзина",
             icon: "cart",
-            path: "@:layout.paths.cart",
+            path: paths.cart,
           },
           {
             type: "call-modal",
@@ -96,7 +96,7 @@ export default {
           {
             type: "link",
             label: "Войти",
-            path: "@:layout.paths.auth",
+            path: paths.auth,
           },
         ],
       ],
