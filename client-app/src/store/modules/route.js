@@ -1,35 +1,21 @@
 const state = () => ({
-  route: {},
-  query: {},
+  modal: null,
+  _route: {},
 });
 
 const mutations = {
-  SET_ROUTE(state, route) {
-    state.route = route;
-    state.query = route.query;
-  },
-};
-
-const actions = {
-  changeRoute({ state, commit, dispatch }, route) {
-    commit("SET_ROUTE", route);
-
-    if (Object.keys(state.query).length) {
-      Object.keys(state.query).forEach((param) => {
-        if (param === "modal")
-          dispatch("instruments/activeModal", state.query[param], {
-            root: true,
-          });
+  handleChangesRoute(state, route) {
+    const routeKeys = Object.keys(route.query);
+    const stateKeys = Object.keys(state).filter((key) => key[0] !== "_");
+    stateKeys
+      .filter((key) => !routeKeys.includes(key))
+      .forEach((key) => {
+        state[key] = null;
       });
-    } else {
-      dispatch(
-        "instruments/offAll",
-        {},
-        {
-          root: true,
-        }
-      );
-    }
+
+    routeKeys.forEach((key) => {
+      if (stateKeys.includes(key)) state[key] = route.query[key];
+    });
   },
 };
 
@@ -37,5 +23,4 @@ export default {
   namespaced: true,
   state,
   mutations,
-  actions,
 };
