@@ -19,8 +19,11 @@ export default {
     this.$store.dispatch("app/init");
   },
   watch: {
-    $route(newVal) {
-      this.$store.dispatch("route/changeRoute", newVal);
+    $route: {
+      immediate: true,
+      handler(newRoute) {
+        this.$store.commit("route/handleChangesRoute", newRoute);
+      },
     },
   },
 };

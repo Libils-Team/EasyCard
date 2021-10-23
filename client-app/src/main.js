@@ -10,8 +10,8 @@ import VueAxios from "vue-axios";
 import "@/assets/scss/_config.scss";
 
 createApp(App)
+  .use(i18n)
   .use(VueAxios, axios)
   .use(store)
   .use(router)
-  .use(i18n)
   .mount("#app");

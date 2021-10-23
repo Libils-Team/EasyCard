@@ -19,9 +19,7 @@ const actions = {
 };
 
 const getters = {
-  getLocale({ locale }) {
-    return locale;
-  },
+  getLocale: ({ locale }) => locale,
 };
 
 export default {
