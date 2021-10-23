@@ -10,7 +10,7 @@ export default {
         [
           {
             type: "call-modal",
-            icon: "map-marker",
+            icon: "fas fa-map-marker-alt",
             label: "{city}",
             path: "?modal=navbar-ChangeCity",
           },
@@ -47,7 +47,7 @@ export default {
           {
             type: "string",
             stringFormat: ["bold"],
-            icon: "phone",
+            icon: "fas fa-phone",
             label: "8-800-77-07-999",
           },
           {
@@ -72,25 +72,25 @@ export default {
           {
             type: "link",
             label: "Сравнить",
-            icon: "graph",
+            icon: "fas fa-equals",
             path: paths.compare,
           },
           {
             type: "link",
             label: "Избранное",
-            icon: "heart",
+            icon: "fas fa-heart",
             path: paths.favorites,
           },
           {
             type: "link",
             label: "Корзина",
-            icon: "cart",
+            icon: "fas fa-shopping-cart",
             path: paths.cart,
           },
           {
             type: "call-modal",
             label: "",
-            icon: "notification",
+            icon: "fas fa-bell",
             path: "?modal=navbar-Notification",
           },
           {
