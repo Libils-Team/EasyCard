@@ -1,3 +1,5 @@
+$quanityPxMult: 4px;
+
 .flex{
     display: flex;
 }
@@ -8,4 +10,67 @@
 
 .align-center{
     align-items: center;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+li{
+    &:last-child{
+        margin: 0;
+    }
+}
+
+.mr{
+    &-2{
+        margin-right: $quanityPxMult * 2;
+    }
+    &-3{
+        margin-right: $quanityPxMult * 3;
+    }
+    &-4{
+        margin-right: $quanityPxMult * 4;
+    }
+}
+
+.ml{
+    &-2{
+        margin-left: $quanityPxMult * 2;
+    }
+    &-3{
+        margin-left: $quanityPxMult * 3;
+    }
+    &-4{
+        margin-left: $quanityPxMult * 4;
+    }
+}
+
+.mt{
+    &-2{
+        margin-top: $quanityPxMult * 2;
+    }
+    &-3{
+        margin-top: $quanityPxMult * 3;
+    }
+
+    &-4{
+        margin-top: $quanityPxMult * 4;
+    }
+}
+
+
+.mb{
+    &-2{
+        margin-bottom: $quanityPxMult * 2;
+    }
+    &-3{
+        margin-bottom: $quanityPxMult * 3;
+    }
+    &-4{
+        margin-bottom: $quanityPxMult * 4;
+    }
 }
