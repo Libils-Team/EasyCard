@@ -6,6 +6,9 @@ const mutations = {
   SET_MODAL(state, modal) {
     state.modal = modal;
   },
+  OFF_ALL(state) {
+    state.modal = null;
+  },
 };
 
 const actions = {
@@ -13,7 +16,7 @@ const actions = {
     commit("SET_MODAL", modal);
   },
   offAll({ commit }) {
-    commit("SET_MODAL", null);
+    commit("OFF_ALL");
   },
 };
 
