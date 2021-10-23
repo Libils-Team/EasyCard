@@ -1,10 +1,26 @@
 const state = () => ({
-  locale: "ru",
+  modal: null,
+  _locale: "ru",
+  _route: {},
 });
 
 const mutations = {
   SET_LOCALE(state, val) {
-    state.locale = val;
+    state._locale = val;
+    localStorage.setItem("locale", val);
+  },
+  handleChangesRoute(state, route) {
+    const routeKeys = Object.keys(route.query);
+    const stateKeys = Object.keys(state).filter((key) => key[0] !== "_");
+    stateKeys
+      .filter((key) => !routeKeys.includes(key))
+      .forEach((key) => {
+        state[key] = null;
+      });
+
+    routeKeys.forEach((key) => {
+      if (stateKeys.includes(key)) state[key] = route.query[key];
+    });
   },
 };
 
@@ -19,7 +35,7 @@ const actions = {
 };
 
 const getters = {
-  getLocale: ({ locale }) => locale,
+  getLocale: ({ _locale }) => _locale,
 };
 
 export default {

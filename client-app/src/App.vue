@@ -22,7 +22,7 @@ export default {
     $route: {
       immediate: true,
       handler(newRoute) {
-        this.$store.commit("route/handleChangesRoute", newRoute);
+        this.$store.commit("app/handleChangesRoute", newRoute);
       },
     },
   },

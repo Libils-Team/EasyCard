@@ -1,11 +1,15 @@
 export default {
   home: "/",
-  shops: "/shops",
-  howToOrder: "/how-to-order",
+  payment: "/payment",
   delivery: "/delivery",
-  entity: "/entity",
   compare: "/compare",
+  catalog: "/catalog",
+  contact: "/contact",
+  account: "/account",
+  blog: "/blog",
+  aboutUs: "/about-us",
   favorites: "/favorites",
   cart: "/cart",
   auth: "/auth",
+  logout: "/logout",
 };

@@ -16,12 +16,10 @@ import NavbarMenu from "@/components/NavbarMenu.vue";
 export default {
   components: { NavbarMenu },
   name: "TheNavbarTop",
-  computed: {
-    locale() {
-      return this.$store.getters["app/getLocale"];
-    },
-    menu() {
-      return this.$i18n.messages[this.locale].header.navbarTop.menu;
+  props: {
+    menu: {
+      type: [Object, Array],
+      required: true,
     },
   },
 };

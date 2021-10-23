@@ -11,7 +11,7 @@ export default {
   },
   computed: {
     modal() {
-      return this.$store.state.route.modal;
+      return this.$store.state.app.modal;
     },
   },
 };
