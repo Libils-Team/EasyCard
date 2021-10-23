@@ -14,7 +14,7 @@ const actions = {
   },
   offAll({ commit }) {
     commit("SET_MODAL", null);
-  }
+  },
 };
 
 export default {

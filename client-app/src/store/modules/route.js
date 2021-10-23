@@ -22,9 +22,13 @@ const actions = {
           });
       });
     } else {
-      dispatch("instruments/offAll", {}, {
-        root: true,
-      });
+      dispatch(
+        "instruments/offAll",
+        {},
+        {
+          root: true,
+        }
+      );
     }
   },
 };
