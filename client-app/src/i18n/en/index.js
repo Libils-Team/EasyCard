@@ -19,7 +19,7 @@ export default {
           {
             type: "link",
             label: "Shops",
-            path: "@:layout.paths.shops",
+            path: paths.shops,
           },
           {
             type: "dropdown",
@@ -28,19 +28,19 @@ export default {
               {
                 type: "link",
                 label: "How to place an order",
-                path: "@:layout.paths.howToOrder",
+                path: paths.howToOrder,
               },
               {
                 type: "link",
                 label: "Delivery",
-                path: "@:layout.paths.delivery",
+                path: paths.delivery,
               },
             ],
           },
           {
             type: "link",
             label: "Legal entities",
-            path: "@:layout.paths.entity",
+            path: paths.entity,
           },
         ],
         [
@@ -64,7 +64,7 @@ export default {
           {
             type: "link-logo",
             image: "logo-main",
-            path: "@:layout.paths.home",
+            path: paths.home,
           },
           {
             type: "search",
@@ -74,19 +74,19 @@ export default {
             type: "link",
             label: "Compare",
             icon: "graph",
-            path: "@:layout.paths.compare",
+            path: paths.compare,
           },
           {
             type: "link",
             label: "Favorites",
             icon: "heart",
-            path: "@:layout.paths.favorites",
+            path: paths.favorites,
           },
           {
             type: "link",
             label: "Cart",
             icon: "cart",
-            path: "@:layout.paths.cart",
+            path: paths.cart,
           },
           {
             type: "call-modal",
@@ -97,7 +97,7 @@ export default {
           {
             type: "link",
             label: "log in",
-            path: "@:layout.paths.auth",
+            path: paths.auth,
           },
         ],
       ],
