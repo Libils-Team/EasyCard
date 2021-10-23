@@ -2,10 +2,15 @@
   <router-link
     v-if="item.type === 'link' || item.type === 'call-modal'"
     :to="item.path"
+    class="flex align-center"
   >
+    <i v-if="item.icon" :class="[item.icon, { 'mr-2': item.label }]"></i>
     {{ item.label }}
   </router-link>
-  <p v-if="item.type === 'string'">{{ item.label }}</p>
+  <p v-if="item.type === 'string'" class="flex align-center">
+    <i v-if="item.icon" :class="[item.icon, { 'mr-2': item.label }]"></i>
+    {{ item.label }}
+  </p>
   <ul class="dropdown-menu" v-if="item.type === 'dropdown'">
     <li
       class="dropdown-item"
