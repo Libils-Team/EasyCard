@@ -1,20 +1,27 @@
 <template>
   <div class="wrapper">
-    <TheNavbarTop />
+    <TheNavbar />
     <router-view />
+    <ModalContainer />
   </div>
 </template>
 
 <script>
-import TheNavbarTop from "@/components/TheNavbarTop";
+import TheNavbar from "@/components/TheNavbar";
+import ModalContainer from "@/components/ModalContainer";
 export default {
   name: "App",
   components: {
-    TheNavbarTop,
+    TheNavbar,
+    ModalContainer,
   },
-  created(){
-    console.log(this.$i18n)
-    console.log(this.$t('layout'))
-  }
+  created() {
+    this.$store.dispatch("app/init");
+  },
+  watch: {
+    $route(newVal) {
+      this.$store.dispatch("route/changeRoute", newVal);
+    },
+  },
 };
 </script>
