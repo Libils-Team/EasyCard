@@ -20,7 +20,9 @@
       class="mr-2"
       v-for="lang in item.languages"
       :key="JSON.stringify(lang)"
-      @click="$store.dispatch('app/changeLocale', lang.val)"
+      @click="
+        $store.dispatch('app/changeLocale', lang.val), ($i18n.locale = lang.val)
+      "
     >
       {{ lang.label }}
     </p>
