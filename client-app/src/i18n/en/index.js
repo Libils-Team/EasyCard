@@ -18,7 +18,7 @@ export default {
           },
           {
             type: "link",
-            label: "About company",
+            label: "About Us",
             path: paths.aboutUs,
           },
           {
