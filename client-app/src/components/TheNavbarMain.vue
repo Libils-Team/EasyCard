@@ -2,9 +2,11 @@
   <header class="header header-main">
     <div class="inner">
       <div class="container">
-        <NavbarMenu
+        <Menu
           :menu="menu"
-          :innerClasses="['flex', 'justify-between', 'align-center']"
+          :innerClassesNavigation="['flex', 'justify-between', 'align-center']"
+          :innerClassesItem="['mr-3']"
+          :innerClassesMenu="['flex', 'align-center']"
         />
       </div>
     </div>
@@ -12,9 +14,9 @@
 </template>
 
 <script>
-import NavbarMenu from "@/components/NavbarMenu.vue";
+import Menu from "@/components/Menu.vue";
 export default {
-  components: { NavbarMenu },
+  components: { Menu },
   name: "TheNavbarMain",
   props: {
     menu: {
