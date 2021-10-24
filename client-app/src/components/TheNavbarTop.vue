@@ -5,7 +5,7 @@
         <Menu
           :menu="menu"
           :innerClassesNavigation="['flex', 'justify-between', 'align-center']"
-          :innerClassesItem="['mr-3']"
+          :innerClassesItem="['mr-4']"
           :innerClassesMenu="['flex', 'align-center']"
         />
       </div>
