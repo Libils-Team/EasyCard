@@ -12,8 +12,12 @@ $quanityPxMult: 4px;
     align-items: center;
 }
 
+.headline{
+    color: $colorTextDark;
+}
+
 .container{
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding-left: 15px;
     padding-right: 15px;
@@ -21,6 +25,10 @@ $quanityPxMult: 4px;
 
 a{
     text-decoration: none;
+    transition: color .3s ease-in;
+    &:hover{
+        color: $colorTextDarkMajorShade !important;
+    }
 }
 
 
@@ -28,52 +36,8 @@ a{
     color: $colorTextDarkHalfShade;
 }
 
-.mr{
-    &-2{
-        margin-right: $quanityPxMult * 2;
-    }
-    &-3{
-        margin-right: $quanityPxMult * 3;
-    }
-    &-4{
-        margin-right: $quanityPxMult * 4;
-    }
-}
+ @include marginGlobal('mt', 'margin-top', $quanityPxMult, 6);
+ @include marginGlobal('mr', 'margin-right', $quanityPxMult, 6);
+ @include marginGlobal('ml', 'margin-left', $quanityPxMult, 6);
+ @include marginGlobal('mb', 'margin-bottom', $quanityPxMult, 6);
 
-.ml{
-    &-2{
-        margin-left: $quanityPxMult * 2;
-    }
-    &-3{
-        margin-left: $quanityPxMult * 3;
-    }
-    &-4{
-        margin-left: $quanityPxMult * 4;
-    }
-}
-
-.mt{
-    &-2{
-        margin-top: $quanityPxMult * 2;
-    }
-    &-3{
-        margin-top: $quanityPxMult * 3;
-    }
-
-    &-4{
-        margin-top: $quanityPxMult * 4;
-    }
-}
-
-
-.mb{
-    &-2{
-        margin-bottom: $quanityPxMult * 2;
-    }
-    &-3{
-        margin-bottom: $quanityPxMult * 3;
-    }
-    &-4{
-        margin-bottom: $quanityPxMult * 4;
-    }
-}

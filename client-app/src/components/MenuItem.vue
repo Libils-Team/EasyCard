@@ -4,9 +4,13 @@
     v-if="item.type === 'link' || item.type === 'call-modal'"
     :to="item.path"
   >
-    <i v-if="item.icon" :class="[item.icon, { 'mr-2': item.label }]"></i>
+    <i
+      v-if="item.icon"
+      :class="['menu-item__icon', item.icon, { 'mr-2': item.label }]"
+    ></i>
     {{ item.label }}
   </router-link>
+  <i v-if="item.type === 'icon'" :class="[item.icon]"></i>
   <p v-if="item.type === 'string'" class="menu-item__text flex align-center">
     <i v-if="item.icon" :class="[item.icon, { 'mr-2': item.label }]"></i>
     {{ item.label }}
@@ -27,14 +31,14 @@
       v-for="dropdownItem in item.dropdownMenu"
       :key="JSON.stringify(dropdownItem)"
     >
-      <NavbarMenuItem :item="dropdownItem" />
+      <MenuItem :item="dropdownItem" />
     </li>
   </ul>
 </template>
 
 <script>
 export default {
-  name: "NavbarMenuItem",
+  name: "MenuItem",
   props: {
     item: {
       type: [Object, Array],

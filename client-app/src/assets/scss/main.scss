@@ -4,14 +4,30 @@
     list-style: none;
 }
 
+html,
+body {
+  height: 100%;
+  font-size: 16px;
+  font-family: $fontFamilyDefault;
+}
+
 i {
     color: $colorTextDarkHalfShade;
     font-size: 16px;
 }
 
-header {
-    padding: 10px 0;
+.wrapper, #app{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+main {
+    flex: 1 0 auto;
+}
 
+header {
+    padding: 0.5vw 0;
     li {
         &:last-child {
             margin: 0;
@@ -36,6 +52,7 @@ header {
                 background-color: transparent;
             }
             &__text {
+                font-size: $textMd;
                 color: $colorTextDarkHalfShade;
             }
         }
@@ -43,23 +60,40 @@ header {
 }
 
 .footer {
-    .menu {
-        &-item {
-            &__lang {
-                p {
-                    cursor: pointer;
-                    &:last-child {
-                        margin-right: 0;
-                    }
+    background: #fafafa;
+    flex: 0 0 auto;
+    padding: 2vw 0;
+    &-area{
+        &__sidebar{
+            i{
+                font-size: $iconXl;
+                color: $colorTextDark;
+                cursor: pointer;
+                transition: color .3s ease;
+                &:hover{
+                    color: $colorTextDarkMajorShade;
                 }
             }
-            &__link {
-                color: $colorTextDark;
-                font-size: $textMd;
-                background-color: transparent;
-            }
-            &__text {
-                color: $colorTextDarkHalfShade;
+        }
+        &__menu{
+            .menu {
+                flex: 1 0 160px;
+                &-item {
+                    &__link {
+                        color: $colorTextDark;
+                        font-size: $textSm;
+                        background-color: transparent;
+                    }
+                    &__text {
+                        color: $colorTextDark;
+                        margin-bottom: 0.5rem;
+                        font-size: $textSm;
+                        font-weight: 500;
+                    }
+                }
+                &:last-child{
+                    margin-right: 0;
+                }
             }
         }
     }
