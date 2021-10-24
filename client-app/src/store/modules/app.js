@@ -7,7 +7,6 @@ const state = () => ({
 const mutations = {
   SET_LOCALE(state, val) {
     state._locale = val;
-    localStorage.setItem("locale", val);
   },
   handleChangesRoute(state, route) {
     const routeKeys = Object.keys(route.query);
@@ -26,6 +25,7 @@ const mutations = {
 
 const actions = {
   changeLocale({ commit }, val) {
+    localStorage.setItem("locale", val);
     commit("SET_LOCALE", val);
   },
   init({ dispatch }) {
