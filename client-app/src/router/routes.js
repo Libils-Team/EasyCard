@@ -23,6 +23,49 @@ const routes = [
     component: () => import("../views/Cart.vue"),
   },
   {
+    path: "/delivery",
+    meta: {
+      title: "Доставка",
+    },
+    component: () => import("../views/Delivery.vue"),
+  },
+  {
+    path: "/account",
+    meta: {
+      title: "Личный кабинет",
+      requiresAuth: true,
+    },
+    component: () => import("../views/Account.vue"),
+  },
+  {
+    path: "/about-us",
+    meta: {
+      title: "О компании",
+    },
+    component: () => import("../views/AboutUs.vue"),
+  },
+  {
+    path: "/blog",
+    meta: {
+      title: "Наш блог",
+    },
+    component: () => import("../views/Blog.vue"),
+  },
+  {
+    path: "/payment",
+    meta: {
+      title: "Оплата",
+    },
+    component: () => import("../views/Payment.vue"),
+  },
+  {
+    path: "/contacts",
+    meta: {
+      title: "Контакты",
+    },
+    component: () => import("../views/Contacts.vue"),
+  },
+  {
     path: "/catalog",
     name: "Catalog",
     meta: {

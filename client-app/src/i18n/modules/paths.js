@@ -4,7 +4,7 @@ export default {
   delivery: "/delivery",
   compare: "/compare",
   catalog: "/catalog",
-  contact: "/contact",
+  contacts: "/contacts",
   account: "/account",
   blog: "/blog",
   aboutUs: "/about-us",
