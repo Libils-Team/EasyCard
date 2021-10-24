@@ -13,8 +13,10 @@ $quanityPxMult: 4px;
 }
 
 .headline{
-    color: $colorTextDark;
+    color: $colorAccentText;
+    font-weight: 400;
 }
+
 
 .container{
     max-width: 1400px;
@@ -36,8 +38,13 @@ a{
     color: $colorTextDarkHalfShade;
 }
 
- @include marginGlobal('mt', 'margin-top', $quanityPxMult, 6);
- @include marginGlobal('mr', 'margin-right', $quanityPxMult, 6);
- @include marginGlobal('ml', 'margin-left', $quanityPxMult, 6);
- @include marginGlobal('mb', 'margin-bottom', $quanityPxMult, 6);
+.text-accent-dark{
+    color: $colorAccentText;
+}
+
+
+ @include marginGlobal('mt', 'margin-top', $quanityPxMult, 10);
+ @include marginGlobal('mr', 'margin-right', $quanityPxMult, 10);
+ @include marginGlobal('ml', 'margin-left', $quanityPxMult, 10);
+ @include marginGlobal('mb', 'margin-bottom', $quanityPxMult, 10);
 
