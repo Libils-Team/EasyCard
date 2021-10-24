@@ -23,10 +23,9 @@ a{
     text-decoration: none;
 }
 
-li{
-    &:last-child{
-        margin: 0;
-    }
+
+.text-half-gray{
+    color: $colorTextDarkHalfShade;
 }
 
 .mr{
