@@ -1,4 +1,5 @@
 import paths from "@/i18n/modules/paths";
+import languages from "@/i18n/modules/languages";
 
 export default {
   layout: {
@@ -9,98 +10,60 @@ export default {
       menu: [
         [
           {
-            type: "call-modal",
-            icon: "map-marker",
-            label: "{city}",
-            path: "?modal=navabar-ChooseCity",
-          },
-        ],
-        [
-          {
             type: "link",
-            label: "Shops",
-            path: paths.shops,
-          },
-          {
-            type: "dropdown",
-            label: "Buyers",
-            dropdownMenu: [
-              {
-                type: "link",
-                label: "How to place an order",
-                path: paths.howToOrder,
-              },
-              {
-                type: "link",
-                label: "Delivery",
-                path: paths.delivery,
-              },
-            ],
+            label: "Catalog",
+            path: paths.catalog,
           },
           {
             type: "link",
-            label: "Legal entities",
-            path: paths.entity,
+            label: "About company",
+            path: paths.aboutUs,
+          },
+          {
+            type: "link",
+            label: "Contacts",
+            path: paths.contacts,
+          },
+          {
+            type: "link",
+            label: "Delivery",
+            path: paths.delivery,
+          },
+          {
+            type: "link",
+            label: "Payment",
+            path: paths.payment,
+          },
+          {
+            type: "link",
+            label: "Account",
+            path: paths.account,
+          },
+          {
+            type: "link",
+            label: "Blog",
+            path: paths.blog,
           },
         ],
         [
           {
             type: "string",
-            stringFormat: ["bold"],
-            icon: "phone",
-            label: "8-800-77-07-999",
+            label: "From 8 a.m. to 11 p.m.",
           },
           {
-            type: "string",
-            icon: "phone",
-            label: "(c 10:00 до 05:00)",
+            type: "link",
+            label: "+7(800) 800-80-80",
+            path: "tel:78008008080",
+          },
+          {
+            type: "lang",
+            languages,
           },
         ],
       ],
     },
     navbarMain: {
-      menu: [
-        [
-          {
-            type: "link-logo",
-            image: "logo-main",
-            path: paths.home,
-          },
-          {
-            type: "search",
-            placehoder: "Site search",
-          },
-          {
-            type: "link",
-            label: "Compare",
-            icon: "graph",
-            path: paths.compare,
-          },
-          {
-            type: "link",
-            label: "Favorites",
-            icon: "heart",
-            path: paths.favorites,
-          },
-          {
-            type: "link",
-            label: "Cart",
-            icon: "cart",
-            path: paths.cart,
-          },
-          {
-            type: "call-modal",
-            label: "",
-            icon: "notification",
-            path: "?modal=navbar-Notification",
-          },
-          {
-            type: "link",
-            label: "log in",
-            path: paths.auth,
-          },
-        ],
-      ],
+      menu: [],
     },
   },
 };
