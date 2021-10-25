@@ -63,6 +63,19 @@ header {
     }
 }
 
+.header-main{
+    &-panel{
+        width: 70%;
+        &__search{
+            margin: 0 5%;
+            width: 100%;
+        }
+    }
+    &-controls{
+        width: 30%;
+    }
+}
+
 .footer {
     background: #fafafa;
     flex: 0 0 auto;

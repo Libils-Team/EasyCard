@@ -65,7 +65,7 @@ export default {
       ],
     },
     navbarMain: {
-      menu: [],
+      siteSearch: "Site search",
     },
   },
   footer: {
