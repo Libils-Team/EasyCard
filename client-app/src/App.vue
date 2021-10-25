@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper">
     <TheNavbar />
+    <TheCategory />
     <main><router-view /></main>
     <TheFooter />
     <ModalContainer />
@@ -10,6 +11,7 @@
 <script>
 import TheNavbar from "@/components/TheNavbar";
 import TheFooter from "@/components/TheFooter";
+import TheCategory from "@/components/TheCategory";
 import ModalContainer from "@/components/ModalContainer";
 export default {
   name: "App",
@@ -17,6 +19,7 @@ export default {
     TheNavbar,
     ModalContainer,
     TheFooter,
+    TheCategory,
   },
   created() {
     this.$store.dispatch("app/init");
