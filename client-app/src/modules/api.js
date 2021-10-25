@@ -2,7 +2,7 @@ import axios from "axios";
 import Router from "@/router";
 import requests from "@/modules/requests";
 
-const baseURL = "http://127.0.0.1";
+const baseURL = "http://localhost:3556";
 const prefix = "/api/";
 
 export const API_REQUEST = async (

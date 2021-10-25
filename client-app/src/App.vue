@@ -1,8 +1,13 @@
 <template>
   <div class="wrapper">
     <TheNavbar />
-    <TheCategory />
-    <main><router-view /></main>
+
+    <main>
+      <div class="container">
+        <TheCategory />
+      </div>
+      <router-view />
+    </main>
     <TheFooter />
     <ModalContainer />
   </div>
@@ -21,8 +26,8 @@ export default {
     TheFooter,
     TheCategory,
   },
-  created() {
-    this.$store.dispatch("app/init");
+  async created() {
+    await this.$store.dispatch("app/init");
   },
   watch: {
     $route: {

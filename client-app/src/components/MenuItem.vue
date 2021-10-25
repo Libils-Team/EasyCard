@@ -40,20 +40,30 @@
       {{ lang.label }}
     </p>
   </div>
-  <ul class="menu-item__dropdown dropdown-menu" v-if="item.type === 'dropdown'">
-    <li
-      class="dropdown-menu__item"
-      v-for="dropdownItem in item.dropdownMenu"
-      :key="JSON.stringify(dropdownItem)"
-    >
-      <MenuItem :item="dropdownItem" />
-    </li>
-  </ul>
+  <template v-if="item.type === 'dropdown'">
+    <BaseMenuDropdown>
+      <template #title>
+        <MenuItem :item="{ ...item, type: 'link', path: '/' }" />
+      </template>
+      <template #dropdown>
+        <template
+          v-for="dropdownItem in item.dropdownMenu"
+          :key="JSON.stringify(dropdownItem)"
+        >
+          <MenuItem :item="dropdownItem" />
+        </template>
+      </template>
+    </BaseMenuDropdown>
+  </template>
 </template>
 
 <script>
+import BaseMenuDropdown from "@/components/BaseMenuDropdown";
 export default {
   name: "MenuItem",
+  components: {
+    BaseMenuDropdown,
+  },
   props: {
     item: {
       type: [Object, Array],
