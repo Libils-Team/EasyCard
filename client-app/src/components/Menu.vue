@@ -24,7 +24,7 @@ export default {
   props: {
     menu: {
       type: [Object, Array],
-      required: true,
+      default: () => [],
     },
     innerClassesNavigation: {
       type: Array,

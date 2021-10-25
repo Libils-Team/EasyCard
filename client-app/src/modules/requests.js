@@ -1,3 +1,3 @@
 export default {
-  getCategories: { method: "get", url: "getCategories" },
+  GetCategories: { method: "get", url: "GetCategory" },
 };

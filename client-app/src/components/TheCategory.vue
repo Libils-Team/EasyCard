@@ -1,5 +1,9 @@
 <template>
-  <Menu :menu="menu" :innerClassesMenu="['flex', 'align-center']" />
+  <Menu
+    :menu="categories"
+    :innerClassesMenu="['flex', 'align-center']"
+    :innerClassesItem="['mr-4']"
+  />
 </template>
 
 <script>
@@ -11,7 +15,7 @@ export default {
   },
   computed: {
     categories() {
-      return [];
+      return this.$store.getters["app/getCategories"];
     },
   },
 };
