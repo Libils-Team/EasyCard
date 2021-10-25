@@ -1,6 +1,7 @@
 <template>
   <div :class="['form-control', { 'form-control-search': type === 'search' }]">
     <input
+      @input="$emit('update:modelValue', $event.target.value)"
       :class="[
         'input-default',
         {
@@ -10,8 +11,6 @@
       :style="innerStyles"
       :type="type"
       :placeholder="placeholder"
-      @blur="blur"
-      @focus="focus"
     />
     <BaseButton :outline="true" v-if="type === 'search'">
       <i class="fas fa-search icon-search"></i>
@@ -27,6 +26,7 @@ export default {
     BaseButton,
   },
   props: {
+    modelValue: String,
     type: {
       type: String,
       default: "text",
@@ -43,10 +43,6 @@ export default {
       type: [Object, Array],
       default: () => {},
     },
-  },
-  methods: {
-    blur() {},
-    focus() {},
   },
 };
 </script>
