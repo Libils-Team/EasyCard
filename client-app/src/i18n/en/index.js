@@ -216,7 +216,7 @@ export default {
     },
   },
   settings: {
-    onlineStore: "online store",
-    helpDesk: "help desk",
+    onlineStore: "Online store",
+    helpDesk: "Help desk",
   },
 };

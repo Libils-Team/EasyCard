@@ -76,7 +76,7 @@ header {
         justify-content: flex-end;
         &__item{
             position: relative;
-            margin-right: 15px;
+            margin-right: 7%;
             &:last-child{
                 margin-right: 0;
             }
@@ -85,7 +85,7 @@ header {
                 color:$colorAccentText;
             }
             span{
-                margin-left: 7px;
+                margin-left: 15px;
                 color:$colorAccentText;
                 font-weight: bold;
             }
