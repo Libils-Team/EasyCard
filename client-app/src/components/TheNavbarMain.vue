@@ -46,7 +46,11 @@
             </svg>
           </div>
           <div class="header-main-panel__search">
-            <input type="search" />
+            <BaseInput
+              v-model="search"
+              type="search"
+              :placeholder="$t('header.navbarMain.siteSearch')"
+            />
           </div>
         </div>
 
@@ -57,13 +61,20 @@
 </template>
 
 <script>
+import BaseInput from "@/components/BaseInput";
 export default {
   name: "TheNavbarMain",
+  components: {
+    BaseInput,
+  },
   props: {
     menu: {
       type: [Object, Array],
       required: true,
     },
   },
+  data: () => ({
+    search: "",
+  }),
 };
 </script>
