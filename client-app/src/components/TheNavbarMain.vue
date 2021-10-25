@@ -6,8 +6,8 @@
           <div class="header-main-panel__logo">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="239"
-              height="68"
+              width="200"
+              height="58"
               viewBox="0 0 239 68"
               fill="none"
             >
@@ -54,7 +54,30 @@
           </div>
         </div>
 
-        <div class="header-main-controls flex align-center"></div>
+        <div class="header-main-controls flex align-center">
+          <div class="header-main-controls__item">
+            <router-link :to="$t('layout.paths.account')">
+              <i class="far fa-user"></i>
+            </router-link>
+          </div>
+          <div class="header-main-controls__item">
+            <router-link :to="$t('layout.paths.favorites')">
+              <i class="far fa-heart"></i>
+            </router-link>
+            <div class="header-main-controls__counter">
+              <small>{{ favoritesCounterProduct }}</small>
+            </div>
+          </div>
+          <div class="header-main-controls__item flex align-center">
+            <router-link :to="$t('layout.paths.cart')">
+              <i class="fas fa-shopping-basket"></i>
+            </router-link>
+            <div class="header-main-controls__counter">
+              <small>{{ cartCounterProduct }}</small>
+            </div>
+            <span>{{ cartMoney }} {{ $t("layout.moneyTrack") }}</span>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -67,14 +90,19 @@ export default {
   components: {
     BaseInput,
   },
-  props: {
-    menu: {
-      type: [Object, Array],
-      required: true,
-    },
-  },
   data: () => ({
     search: "",
   }),
+  computed: {
+    cartMoney() {
+      return 0;
+    },
+    cartCounterProduct() {
+      return 0;
+    },
+    favoritesCounterProduct() {
+      return 0;
+    },
+  },
 };
 </script>

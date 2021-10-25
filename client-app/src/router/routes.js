@@ -52,6 +52,13 @@ const routes = [
     component: () => import("../views/Blog.vue"),
   },
   {
+    path: "/favorites",
+    meta: {
+      title: "Избранное",
+    },
+    component: () => import("../views/Favorites.vue"),
+  },
+  {
     path: "/payment",
     meta: {
       title: "Оплата",

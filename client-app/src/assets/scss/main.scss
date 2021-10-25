@@ -73,6 +73,40 @@ header {
     }
     &-controls{
         width: 30%;
+        justify-content: flex-end;
+        &__item{
+            position: relative;
+            margin-right: 15px;
+            &:last-child{
+                margin-right: 0;
+            }
+            i{
+                font-size: $iconLg;
+                color:$colorAccentText;
+            }
+            span{
+                margin-left: 7px;
+                color:$colorAccentText;
+                font-weight: bold;
+            }
+        }
+        &__counter{
+            position: absolute;
+            top: -10px;
+            left: 18px;
+            background-color: #1b2738;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 18px;
+            height:  18px;
+            line-height: 18px;
+            small{
+                font-size: $textXs;
+                color:#fff;
+            }
+        }
     }
 }
 

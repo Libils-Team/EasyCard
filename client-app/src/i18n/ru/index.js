@@ -6,6 +6,7 @@ export default {
   global,
   layout: {
     paths,
+    moneyTrack: "₽",
   },
   header: {
     navbarTop: {
