@@ -41,8 +41,7 @@ export default {
       background: #f7f7f7;
       &:hover {
         background: #f7f7f7 !important;
-        background: #283b54 !important;
-        border-color: none !important;
+        border-color: transparent !important ;
       }
     }
     &:hover {

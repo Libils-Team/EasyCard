@@ -13,8 +13,8 @@
       @blur="blur"
       @focus="focus"
     />
-    <BaseButton outline v-if="type === 'search'">
-      <i class="fas fa-search"></i>
+    <BaseButton :outline="true" v-if="type === 'search'">
+      <i class="fas fa-search icon-search"></i>
     </BaseButton>
   </div>
 </template>
@@ -52,6 +52,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.icon-search {
+  transition: color 0.3s ease;
+  &:hover {
+    color: #333333;
+  }
+}
 .form {
   &-control {
     position: relative;
@@ -76,6 +82,7 @@ export default {
     font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
+    min-width: 150px;
     color: #333333;
     background: #f7f7f7;
     border-radius: 0;
