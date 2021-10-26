@@ -5,13 +5,16 @@ import router from "@/router";
 import store from "./store";
 import axios from "axios";
 import VueAxios from "vue-axios";
+import components from "@/components/Base";
 
 // Scss
 import "@/assets/scss/_config.scss";
 
-createApp(App)
-  .use(i18n)
-  .use(VueAxios, axios)
-  .use(store)
-  .use(router)
-  .mount("#app");
+const app = createApp(App);
+
+components.forEach((component) => {
+  console.log(component);
+  app.component(component.name, component);
+});
+
+app.use(i18n).use(VueAxios, axios).use(store).use(router).mount("#app");

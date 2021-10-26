@@ -19,12 +19,8 @@
 </template>
 
 <script>
-import BaseButton from "@/components/BaseButton";
 export default {
   name: "BaseInput",
-  components: {
-    BaseButton,
-  },
   props: {
     modelValue: String,
     type: {
