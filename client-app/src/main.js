@@ -13,7 +13,6 @@ import "@/assets/scss/_config.scss";
 const app = createApp(App);
 
 components.forEach((component) => {
-  console.log(component);
   app.component(component.name, component);
 });
 

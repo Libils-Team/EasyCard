@@ -69,6 +69,9 @@ export default {
       siteSearch: "Site search",
     },
   },
+  product:{
+    priceTo: "From"
+  },
   footer: {
     menu: [
       [

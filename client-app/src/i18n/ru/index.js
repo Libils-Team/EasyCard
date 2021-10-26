@@ -69,6 +69,10 @@ export default {
       siteSearch: "Поиск по сайту",
     },
   },
+
+  product:{
+    priceTo: "От"
+  },
   footer: {
     menu: [
       [

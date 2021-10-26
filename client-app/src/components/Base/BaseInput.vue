@@ -12,7 +12,7 @@
       :type="type"
       :placeholder="placeholder"
     />
-    <BaseButton :outline="true" v-if="type === 'search'">
+    <BaseButton style="width: 55px; height:50px;" :outline="true" v-if="type === 'search'">
       <i class="fas fa-search icon-search"></i>
     </BaseButton>
   </div>
