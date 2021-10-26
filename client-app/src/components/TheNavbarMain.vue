@@ -65,7 +65,7 @@
               <i class="far fa-heart"></i>
             </router-link>
             <div class="header-main-controls__counter">
-              <small>{{ favoritesCounterProduct }}</small>
+              <small>{{ $store.state.shop.favorites.countItems }}</small>
             </div>
           </div>
           <div class="header-main-controls__item flex align-center">
@@ -73,9 +73,12 @@
               <i class="fas fa-shopping-basket"></i>
             </router-link>
             <div class="header-main-controls__counter">
-              <small>{{ cartCounterProduct }}</small>
+              <small>{{ $store.state.shop.cart.countItems }}</small>
             </div>
-            <span>{{ cartMoney }} {{ $t("layout.moneyTrack") }}</span>
+            <span
+              >{{ $store.state.shop.cart.total }}
+              {{ $t("layout.moneyTrack") }}</span
+            >
           </div>
         </div>
       </div>
@@ -84,25 +87,10 @@
 </template>
 
 <script>
-import BaseInput from "@/components/BaseInput";
 export default {
   name: "TheNavbarMain",
-  components: {
-    BaseInput,
-  },
   data: () => ({
     search: "",
   }),
-  computed: {
-    cartMoney() {
-      return 0;
-    },
-    cartCounterProduct() {
-      return 0;
-    },
-    favoritesCounterProduct() {
-      return 0;
-    },
-  },
 };
 </script>
