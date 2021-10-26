@@ -58,12 +58,8 @@
 </template>
 
 <script>
-import BaseMenuDropdown from "@/components/BaseMenuDropdown";
 export default {
   name: "MenuItem",
-  components: {
-    BaseMenuDropdown,
-  },
   props: {
     item: {
       type: [Object, Array],
