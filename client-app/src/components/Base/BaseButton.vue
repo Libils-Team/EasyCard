@@ -20,8 +20,9 @@ export default {
 .button {
   &-default {
     cursor: pointer;
-    height: 50px;
+    height: 40px;
     max-width: 100%;
+    width: 100%;
     color: $white;
     border-radius: 0;
     text-align: center;

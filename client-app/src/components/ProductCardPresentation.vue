@@ -8,14 +8,14 @@
         <h2 class="headline">{{ title }}</h2>
       </div>
       <div class="card-presentation-price">
-        <div class="card-presentation-price__old">
+        <div class="card-presentation-price__old" v-if="!!priceOld.length">
           <h4 class="headline text-half-gray">
             {{ priceOld }} {{ $t("layout.moneyTrack") }}
           </h4>
         </div>
         <div class="card-presentation-price__current">
           <h4 class="headline text-half-gray">
-            {{ priceTo }} {{ priceCurrent }} {{ $t("layout.moneyTrack") }}
+             {{ (priceTo ? $t('product.priceTo') : "")  + priceCurrent }} {{ $t("layout.moneyTrack") }}
           </h4>
         </div>
       </div>
@@ -27,5 +27,33 @@
 <script>
 export default {
   name: "ProductCardPresentation",
+  props:{
+    image:{
+      type: String,
+      required: true
+    },
+    title: {
+      type: String,
+      required: true
+    },
+    priceOld:{
+      type: String,
+      default: ""
+    },
+    priceTo:{
+      type: Boolean,
+      default: false
+    },
+    priceCurrent:{
+      type: String,
+      required: true
+    },
+  },
+
+  computed:{
+    path(){
+      return "/"
+    }
+  }
 };
 </script>
