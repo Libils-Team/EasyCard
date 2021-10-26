@@ -51,7 +51,7 @@ export default {
 .icon-search {
   transition: color 0.3s ease;
   &:hover {
-    color: #333333;
+    color: $colorTextDark;
   }
 }
 .form {
@@ -79,8 +79,8 @@ export default {
     font-weight: 400;
     line-height: 1.5;
     min-width: 150px;
-    color: #333333;
-    background: #f7f7f7;
+    color: $colorTextDark;
+    background: $bgGray;
     border-radius: 0;
     border: none;
     box-shadow: none;
@@ -89,9 +89,9 @@ export default {
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
     &--outline {
-      background: #fff;
-      border-color: #f7f7f7;
-      color: #333333;
+      background: $white;
+      border-color: $bgGray;
+      color: $colorTextDark;
       border: 1px solid #808080;
     }
   }
