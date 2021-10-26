@@ -31,7 +31,7 @@ export default {
   &-title {
     cursor: pointer;
     i {
-      color: #333;
+      color: $colorTextDark;
       font-size: 12px;
       margin-bottom: -3px;
     }
@@ -40,8 +40,8 @@ export default {
     position: absolute;
     top: 20px;
     width: 200px;
-    background-color: #fff;
-    border: 1px solid #ededed;
+    background-color: $white;
+    border: 1px solid $bgGrayShade;
     box-shadow: 0px 4px 12px rgb(0 0 0 / 10%);
     padding: 15px;
   }
