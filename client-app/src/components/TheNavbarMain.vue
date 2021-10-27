@@ -64,16 +64,19 @@
             <router-link :to="$t('layout.paths.favorites')">
               <i class="far fa-heart"></i>
             </router-link>
-            <div class="header-main-controls__counter">
-              <small>{{ $store.state.shop.favorites.items.length }}</small>
+            <div
+              class="header-main-controls__counter"
+              v-if="countFavoritesItems"
+            >
+              <small>{{ countFavoritesItems }}</small>
             </div>
           </div>
           <div class="header-main-controls__item flex align-center">
             <router-link :to="$t('layout.paths.cart')">
               <i class="fas fa-shopping-basket"></i>
             </router-link>
-            <div class="header-main-controls__counter">
-              <small>{{ $store.state.shop.cart.items.length }}</small>
+            <div class="header-main-controls__counter" v-if="countCartItems">
+              <small>{{ countCartItems }}</small>
             </div>
             <span
               >{{ $store.state.shop.cart.total }}
@@ -92,5 +95,13 @@ export default {
   data: () => ({
     search: "",
   }),
+  computed: {
+    countCartItems() {
+      return this.$store.state.shop.cart.items.length;
+    },
+    countFavoritesItems() {
+      return this.$store.state.shop.favorites.items.length;
+    },
+  },
 };
 </script>
