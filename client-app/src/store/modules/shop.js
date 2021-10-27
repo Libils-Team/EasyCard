@@ -26,7 +26,7 @@ const actions = {
   async init({ commit }) {
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    
+
     if (Object.keys(cart).length) {
       const items = await API_REQUEST("GetProductsByIds", {
         ids: cart.map((item) => item.id).toString(),
