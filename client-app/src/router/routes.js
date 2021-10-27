@@ -8,6 +8,14 @@ const routes = [
     component: () => import("../views/Home.vue"),
   },
   {
+    path: "/product/:id",
+    name: "Product",
+    meta: {
+      title: "продукт",
+    },
+    component: () => import("../views/Product.vue"),
+  },
+  {
     path: "/search",
     name: "Search",
     meta: {
