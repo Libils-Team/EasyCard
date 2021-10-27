@@ -28,6 +28,7 @@ export default {
 .dropdown {
   position: relative;
   user-select: none;
+  z-index:20;
   &-title {
     cursor: pointer;
     i {
