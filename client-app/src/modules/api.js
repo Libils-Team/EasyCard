@@ -12,7 +12,6 @@ export const API_REQUEST = async (
 ) => {
   const cmd = requests[command];
   if (!cmd) throw new Error("Invalid request command");
-
   return new Promise((resolve) => {
     axios({
       url: baseURL + prefix + cmd.url,
