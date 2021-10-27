@@ -1,12 +1,15 @@
 <template>
   <div class="carousel">
+    <div class="carousel-title">
+      <slot name="title"></slot>
+    </div>
     <div class="carousel-list" ref="list">
       <div
         class="carousel-track"
         ref="track"
         :style="{ width: trackWidth + 'px' }"
       >
-        <slot></slot>
+        <slot name="sliders"></slot>
       </div>
     </div>
 
@@ -138,7 +141,8 @@ export default {
 
 <style lang="scss" scoped>
 .carousel {
-  padding: 40px 0;
+  padding-top: 40px;
+  margin: 40px 0;
   position: relative;
   display: block;
   box-sizing: border-box;
@@ -204,6 +208,11 @@ export default {
       color: $white;
       font-size: $iconXs;
     }
+  }
+
+  &-title{
+    position: absolute;
+    top: 0;
   }
 }
 
