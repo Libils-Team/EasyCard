@@ -23,14 +23,15 @@ const mutations = {
 };
 
 const actions = {
-  async init({ commit }) {
+  async init({ commit, dispatch }) {
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     if (Object.keys(cart).length) {
-      const items = await API_REQUEST("GetProductsByIds", {
-        ids: cart.map((item) => item.id).toString(),
-      });
+      const items = await dispatch(
+        "getProductsByIds",
+        cart.map((item) => item.id)
+      );
       commit("SET_CART", {
         items,
         total: items.reduce((acc, val) => acc + val.priceCurrent, 0),
@@ -38,9 +39,10 @@ const actions = {
       });
     }
     if (Object.keys(favorites).length) {
-      const items = await API_REQUEST("GetProductsByIds", {
-        ids: favorites.map((item) => item.id).toString(),
-      });
+      const items = await dispatch(
+        "getProductsByIds",
+        favorites.map((item) => item.id)
+      );
       commit("SET_FAVORITES", {
         items,
         itemsIds: favorites,
@@ -48,14 +50,23 @@ const actions = {
     }
   },
 
-  async addToCart({ state, commit }, id) {
-    const item = await API_REQUEST("GetProductById", { id });
+  async addToCart({ state, commit, dispatch }, id) {
+    const item = await dispatch("getProductById", id);
     const cart = JSON.parse(JSON.stringify(state.cart.items)).push(item);
     commit("SET_CART", {
       items: cart,
       itemsIds: cart,
       total: cart.reduce((acc, val) => acc + val.priceCurrent, 0),
     });
+  },
+
+  async getProductById(ctx, id) {
+    console.log(id);
+    return await API_REQUEST("GetProductById", { id });
+  },
+
+  async getProductsByIds(ctx, ids) {
+    return await API_REQUEST("GetProductsByIds", { ids: ids.toString() });
   },
 };
 
