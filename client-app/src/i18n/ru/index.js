@@ -70,8 +70,12 @@ export default {
     },
   },
 
+  home:{
+    popularProductsTitle: "Популярные товары"
+  },
+
   product: {
-    priceTo: "От",
+    priceFrom: "От",
   },
   footer: {
     menu: [
