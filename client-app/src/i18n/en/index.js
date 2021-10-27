@@ -69,8 +69,12 @@ export default {
       siteSearch: "Site search",
     },
   },
+  home:{
+    popularProductsTitle: "Popular products"
+  },
+
   product: {
-    priceTo: "From",
+    priceFrom: "From",
   },
   footer: {
     menu: [

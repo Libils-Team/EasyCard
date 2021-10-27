@@ -15,7 +15,7 @@
         </div>
         <div class="card-presentation-price__current flex align-center">
           <span class="text-half-gray mr-2">{{
-            priceFrom ? $t("product.priceTo") : ""
+            priceFrom ? $t("product.priceFrom") : ""
           }}</span>
           <p>
             {{ priceCurrent + $t("layout.moneyTrack") }}
