@@ -3,9 +3,14 @@
     <div class="inner">
       <div class="container">
         <BaseCarousel to="5" :dotsIs="false">
-          <BaseCarouselSlide v-for="item in list" :key="JSON.stringify(item)">
+        <template #title>
+          <h2 class="headline">{{ $t('home.popularProductsTitle') }}</h2>
+        </template>
+          <template #sliders>
+            <BaseCarouselSlide v-for="item in list" :key="JSON.stringify(item)">
             <ProductCardPresentation v-bind="item" />
           </BaseCarouselSlide>
+          </template>
         </BaseCarousel>
       </div>
     </div>
@@ -87,4 +92,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  .headline{
+    font-size: $textXl;
+  }
+</style>
