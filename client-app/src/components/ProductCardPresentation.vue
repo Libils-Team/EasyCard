@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="card-presentation-actions">
-        <BaseButton @click="addToCart" v-if="!inCart">В корзину</BaseButton>
+        <BaseButton @click.prevent="addToCart" v-if="!inCart">В корзину</BaseButton>
         <div v-else class="flex align-center">
           <BaseButton style="width: 25%">-</BaseButton>
           <router-link :to="$t('paths.cart')">
