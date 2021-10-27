@@ -23,10 +23,10 @@
     </div>
     <div class="carousel-actions" v-if="countPage > 1">
       <BaseButton class="carousel-btn carousel-btn-prev" @click="prev">
-        Previous door
+        <i class="fas fa-chevron-left"></i>
       </BaseButton>
       <BaseButton class="carousel-btn carousel-btn-next" @click="next">
-        Next door
+        <i class="fas fa-chevron-right"></i>
       </BaseButton>
     </div>
   </div>
@@ -138,6 +138,7 @@ export default {
 
 <style lang="scss" scoped>
 .carousel {
+  padding: 40px 0;
   position: relative;
   display: block;
   box-sizing: border-box;
@@ -196,7 +197,13 @@ export default {
 
   &-actions {
     display: flex;
-    margin-top: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    i{
+      color: $white;
+      font-size: 14px;
+    }
   }
 }
 
