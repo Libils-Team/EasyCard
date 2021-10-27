@@ -28,7 +28,9 @@ const actions = {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     if (Object.keys(cart).length) {
-      const items = await API_REQUEST("GetProductsByIds", { body: cart });
+      const items = await API_REQUEST("GetProductsByIds", {
+        ids: cart.map((item) => item.id).toString(),
+      });
       commit("SET_CART", {
         items,
         total: items.reduce((acc, val) => acc + val.priceCurrent),
@@ -36,7 +38,9 @@ const actions = {
       });
     }
     if (Object.keys(favorites).length) {
-      const items = await API_REQUEST("GetProductsByIds", { body: favorites });
+      const items = await API_REQUEST("GetProductsByIds", {
+        ids: favorites.map((item) => item.id).toString(),
+      });
       commit("SET_FAVORITES", {
         items,
         itemsIds: favorites,
@@ -45,17 +49,13 @@ const actions = {
   },
 
   async addToCart({ state, commit }, id) {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const item = await API_REQUEST("GetProductsByIds", { body: [id] });
-    console.log(item)
-    const tempCartItems = JSON.parse(JSON.stringify(state.cart.items)).push(
-      item
-    );
+    const item = await API_REQUEST("GetProductById", { id });
+    const cart = JSON.parse(JSON.stringify(state.cart.items)).push(item);
 
     commit("SET_CART", {
-      items: tempCartItems,
-      total: tempCartItems.reduce((acc, val) => acc + val.priceCurrent),
-      itemsIds: cart.push(id),
+      items: cart,
+      itemsIds: cart,
+      total: cart.reduce((acc, val) => acc + val.priceCurrent),
     });
   },
 };
