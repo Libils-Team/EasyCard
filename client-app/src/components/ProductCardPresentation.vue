@@ -14,18 +14,18 @@
           </p>
         </div>
         <div class="card-presentation-price__current flex align-center">
-          <span class="text-half-gray mr-2">{{
-            priceFrom ? $t("product.priceFrom") : ""
-          }}</span>
+          <span class="text-half-gray mr-2">
+            {{ priceFrom ? $t("product.priceFrom") : "" }}
+          </span>
           <p>
             {{ priceCurrent + $t("layout.moneyTrack") }}
           </p>
         </div>
       </div>
       <div class="card-presentation-actions">
-        <BaseButton @click.prevent="addToCart" v-if="!inCart"
-          >В корзину</BaseButton
-        >
+        <BaseButton @click.prevent="addToCart" v-if="!inCart">
+          В корзину
+        </BaseButton>
         <div v-else class="flex align-center">
           <BaseButton style="width: 25%">-</BaseButton>
           <router-link :to="$t('paths.cart')">
