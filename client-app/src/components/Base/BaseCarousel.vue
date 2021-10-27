@@ -210,7 +210,7 @@ export default {
     }
   }
 
-  &-title{
+  &-title {
     position: absolute;
     top: 0;
   }
