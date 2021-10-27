@@ -70,8 +70,8 @@ export default {
     },
   },
 
-  home:{
-    popularProductsTitle: "Популярные товары"
+  home: {
+    popularProductsTitle: "Популярные товары",
   },
 
   product: {

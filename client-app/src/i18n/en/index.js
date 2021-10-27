@@ -69,8 +69,8 @@ export default {
       siteSearch: "Site search",
     },
   },
-  home:{
-    popularProductsTitle: "Popular products"
+  home: {
+    popularProductsTitle: "Popular products",
   },
 
   product: {
