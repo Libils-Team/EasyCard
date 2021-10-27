@@ -26,14 +26,14 @@ const actions = {
   async init({ commit }) {
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
+    console.log(cart)
     if (Object.keys(cart).length) {
       const items = await API_REQUEST("GetProductsByIds", {
         ids: cart.map((item) => item.id).toString(),
       });
       commit("SET_CART", {
         items,
-        total: items.reduce((acc, val) => acc + val.priceCurrent),
+        total: items.reduce((acc, val) => acc + val.priceCurrent, 0),
         itemsIds: cart,
       });
     }
@@ -51,11 +51,10 @@ const actions = {
   async addToCart({ state, commit }, id) {
     const item = await API_REQUEST("GetProductById", { id });
     const cart = JSON.parse(JSON.stringify(state.cart.items)).push(item);
-
     commit("SET_CART", {
       items: cart,
       itemsIds: cart,
-      total: cart.reduce((acc, val) => acc + val.priceCurrent),
+      total: cart.reduce((acc, val) => acc + val.priceCurrent, 0),
     });
   },
 };
