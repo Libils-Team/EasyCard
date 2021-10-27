@@ -200,9 +200,9 @@ export default {
     position: absolute;
     top: 0;
     right: 0;
-    i{
+    i {
       color: $white;
-      font-size: 14px;
+      font-size: $iconXs;
     }
   }
 }
