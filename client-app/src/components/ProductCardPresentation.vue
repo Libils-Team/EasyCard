@@ -77,7 +77,7 @@ export default {
       return this.$store.getters["shop/getProductCartById"](this.id);
     },
     path() {
-      return "/";
+      return `/product/${this.id}`;
     },
   },
 };
