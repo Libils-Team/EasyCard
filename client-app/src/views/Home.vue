@@ -2,9 +2,11 @@
   <section>
     <div class="inner">
       <div class="container">
-        <div class="products-presentation">
-          <ProductCardPresentation v-for="item in list" :key="JSON.stringify(item)" v-bind="item" />
-        </div>
+        <BaseCarousel to="5" :dotsIs="false">
+          <BaseCarouselSlide v-for="item in list" :key="JSON.stringify(item)">
+            <ProductCardPresentation v-bind="item" />
+          </BaseCarouselSlide>
+        </BaseCarousel>
       </div>
     </div>
   </section>
@@ -16,58 +18,72 @@ export default {
   components: { ProductCardPresentation },
   name: "Home",
   data: () => ({
-    list:[
+    list: [
       {
-        image:"https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
+        id: 1,
+        image:
+          "https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
         title: "test",
         priceOld: "300",
-        priceTo: true,
-        priceCurrent:"4000",
+        priceFrom: true,
+        priceCurrent: "4000",
       },
       {
-        image:"https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
+        id: 2,
+        image:
+          "https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
         title: "test",
         priceOld: "300",
-        priceTo: true,
-        priceCurrent:"4000",
+        priceFrom: true,
+        priceCurrent: "4000",
       },
       {
-        image:"https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
+        id: 3,
+        image:
+          "https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
         title: "test",
         priceOld: "300",
-        priceTo: true,
-        priceCurrent:"4000",
+        priceFrom: true,
+        priceCurrent: "4000",
       },
       {
-        image:"https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
+        id: 4,
+        image:
+          "https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
         title: "test",
         priceOld: "300",
-        priceTo: true,
-        priceCurrent:"4000",
+        priceFrom: true,
+        priceCurrent: "4000",
       },
       {
-        image:"https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
+        id: 5,
+        image:
+          "https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
         title: "test",
         priceOld: "300",
-        priceTo: true,
-        priceCurrent:"4000",
+        priceFrom: true,
+        priceCurrent: "4000",
       },
       {
-        image:"https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
+        id: 6,
+        image:
+          "https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
         title: "test",
         priceOld: "300",
-        priceTo: true,
-        priceCurrent:"4000",
+        priceFrom: true,
+        priceCurrent: "4000",
       },
       {
-        image:"https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
+        id: 7,
+        image:
+          "https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
         title: "test",
         priceOld: "300",
-        priceTo: true,
-        priceCurrent:"4000",
+        priceFrom: true,
+        priceCurrent: "4000",
       },
-    ]
-  })
+    ],
+  }),
 };
 </script>
 

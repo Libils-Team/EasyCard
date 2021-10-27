@@ -70,8 +70,8 @@ export default {
     },
   },
 
-  product:{
-    priceTo: "От"
+  product: {
+    priceTo: "От",
   },
   footer: {
     menu: [

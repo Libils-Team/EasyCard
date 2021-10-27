@@ -65,7 +65,7 @@
               <i class="far fa-heart"></i>
             </router-link>
             <div class="header-main-controls__counter">
-              <small>{{ $store.state.shop.favorites.countItems }}</small>
+              <small>{{ $store.state.shop.favorites.items.length }}</small>
             </div>
           </div>
           <div class="header-main-controls__item flex align-center">
@@ -73,7 +73,7 @@
               <i class="fas fa-shopping-basket"></i>
             </router-link>
             <div class="header-main-controls__counter">
-              <small>{{ $store.state.shop.cart.countItems }}</small>
+              <small>{{ $store.state.shop.cart.items.length }}</small>
             </div>
             <span
               >{{ $store.state.shop.cart.total }}

@@ -39,7 +39,7 @@ const actions = {
     dispatch("changeLocale", lang);
 
     commit("SET_CATEGORIES", await API_REQUEST("GetCategories"));
-    dispatch("shop/init", {}, { root: true });
+    await dispatch("shop/init", {}, { root: true });
   },
 };
 
