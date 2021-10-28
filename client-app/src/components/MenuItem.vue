@@ -43,7 +43,7 @@
   <template v-if="item.type === 'dropdown'">
     <BaseMenuDropdown>
       <template #title>
-        <MenuItem :item="{ ...item, type: 'link', path: '/' }" />
+        <MenuItem :item="{ ...item, type: 'link', path: item.path }" />
       </template>
       <template #dropdown>
         <template
