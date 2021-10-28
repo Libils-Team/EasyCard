@@ -19,13 +19,12 @@ export default {
     product: {},
   }),
   async created() {
-    this.product =
-      (await this.$store.dispatch(
-        "shop/getProductById",
-        this.$route.params.id
-      )) || {};
-    console.log(this.product);
-    if (!Object.keys(this.product).length) this.$router.push("/");
+    const product = await this.$store.dispatch("shop/getProductsByIds", [
+      this.$route.params.id,
+    ]);
+
+    if (!product.length) this.$router.push("/");
+    else this.product = product[0];
   },
 };
 </script>
