@@ -19,76 +19,16 @@
 
 <script>
 import ProductCardPresentation from "@/components/ProductCardPresentation";
+import { API_REQUEST } from "@/modules/api";
 export default {
   components: { ProductCardPresentation },
   name: "Home",
   data: () => ({
-    list: [
-      {
-        id: 1,
-        image:
-          "https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
-        title: "test",
-        priceOld: "300",
-        priceFrom: true,
-        priceCurrent: "4000",
-      },
-      {
-        id: 2,
-        image:
-          "https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
-        title: "test",
-        priceOld: "300",
-        priceFrom: true,
-        priceCurrent: "4000",
-      },
-      {
-        id: 3,
-        image:
-          "https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
-        title: "test",
-        priceOld: "300",
-        priceFrom: true,
-        priceCurrent: "4000",
-      },
-      {
-        id: 4,
-        image:
-          "https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
-        title: "test",
-        priceOld: "300",
-        priceFrom: true,
-        priceCurrent: "4000",
-      },
-      {
-        id: 5,
-        image:
-          "https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
-        title: "test",
-        priceOld: "300",
-        priceFrom: true,
-        priceCurrent: "4000",
-      },
-      {
-        id: 6,
-        image:
-          "https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
-        title: "test",
-        priceOld: "300",
-        priceFrom: true,
-        priceCurrent: "4000",
-      },
-      {
-        id: 7,
-        image:
-          "https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
-        title: "test",
-        priceOld: "300",
-        priceFrom: true,
-        priceCurrent: "4000",
-      },
-    ],
+    list: [],
   }),
+  async created() {
+    this.list = await API_REQUEST("GetProductsByCategory", { categoryId: 10 });
+  },
 };
 </script>
 

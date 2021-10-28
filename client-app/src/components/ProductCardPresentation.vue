@@ -27,11 +27,20 @@
           В корзину
         </BaseButton>
         <div v-else class="flex align-center">
-          <BaseButton style="width: 25%">-</BaseButton>
-          <router-link :to="$t('paths.cart')">
-            <BaseButton style="width: 50%">В корзину</BaseButton>
+          <BaseButton @click.prevent="updateCart(false)" style="width: 25%"
+            >-</BaseButton
+          >
+          <router-link :to="$t('layout.paths.cart')">
+            <BaseButton>
+              <div class="flex justify-center flex-column">
+                <p>В корзине {{ counterInCart }} шт</p>
+                <small>Перейти</small>
+              </div>
+            </BaseButton>
           </router-link>
-          <BaseButton style="width: 25%">+</BaseButton>
+          <BaseButton @click.prevent="updateCart(true)" style="width: 25%"
+            >+</BaseButton
+          >
         </div>
       </div>
     </router-link>
@@ -69,14 +78,23 @@ export default {
   },
 
   methods: {
-    addToCart() {
-      this.$store.dispatch("shop/addToCart", this.id);
+    async addToCart() {
+      await this.$store.dispatch("shop/addToCart", this.id);
+    },
+    async updateCart(action) {
+      await this.$store.dispatch("shop/updateCartItemCounter", {
+        action,
+        id: this.id,
+      });
     },
   },
 
   computed: {
     inCart() {
-      return this.$store.getters["shop/getProductCartById"](this.id);
+      return this.$store.getters["shop/getCheckProductCartById"](this.id);
+    },
+    counterInCart() {
+      return this.$store.getters["shop/getCounterAddToCartById"](this.id);
     },
     path() {
       return `/product/${this.id}`;
