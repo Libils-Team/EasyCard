@@ -8,6 +8,14 @@ $quanityPxMult: 4px;
     justify-content: space-between;
 }
 
+.justify-center{
+    justify-content: space-center;
+}
+
+.flex-column{
+    flex-direction: column;
+}
+
 .align-center{
     align-items: center;
 }
