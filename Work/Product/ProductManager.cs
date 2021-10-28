@@ -21,7 +21,7 @@ namespace EasyCard.Work.Product
                 }
                 else
                 {
-                    return db.Product.AsNoTracking().Include("ProductCategory").Where(i => i.ProductCategory.Id == categoryId).OrderBy(p=>p.Name).Skip(offset).Take(take).ToList();
+                    return db.Product.AsNoTracking().Include("ProductCategory").Where(i => i.ProductCategory.Id == categoryId).OrderBy(p=>p.Title).Skip(offset).Take(take).ToList();
                 }
             }
         }
