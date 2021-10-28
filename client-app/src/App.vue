@@ -1,7 +1,10 @@
 <template>
   <div class="wrapper">
+    <div class="loading-wrapper" v-if="$store.state.app._overlay">
+      <div class="loading-wrapper-overlay"></div>
+      <div class="loading-wrapper-loader"></div>
+    </div>
     <TheNavbar />
-
     <main>
       <div class="container">
         <TheCategory />

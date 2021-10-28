@@ -3,6 +3,7 @@ import { API_REQUEST } from "@/modules/api";
 const state = () => ({
   modal: null,
   _categories: [],
+  _overlay: [],
   _locale: "ru",
   _route: {},
 });
@@ -27,6 +28,9 @@ const mutations = {
       if (stateKeys.includes(key)) state[key] = route.query[key];
     });
   },
+  SET_OVERLAY_LOAD(state, val) {
+    state._overlay = val;
+  },
 };
 
 const actions = {
@@ -35,23 +39,25 @@ const actions = {
     commit("SET_LOCALE", val);
   },
   async init({ dispatch, commit }) {
+    commit("SET_OVERLAY_LOAD", true);
     const lang = localStorage.getItem("locale") || window.navigator.language;
     dispatch("changeLocale", lang);
 
-    commit("SET_CATEGORIES", await API_REQUEST("GetCategories"));
+    const categories = await API_REQUEST("GetCategories");
+    commit("SET_CATEGORIES", replacerCategories(categories));
     await dispatch("shop/init", {}, { root: true });
+    commit("SET_OVERLAY_LOAD", false);
   },
 };
 
 const replacerCategories = (arr) => {
   return arr.map((el) => {
-    el.label = el.categoryName;
-    if (el.subCategories !== null) {
+    el.path = "/category/" + el.id;
+    if (el.dropdownMenu !== null) {
       el.type = "dropdown";
-      el.dropdownMenu = replacerCategories(el.subCategories);
+      el.dropdownMenu = replacerCategories(el.dropdownMenu);
     } else {
       el.type = "link";
-      el.path = "/";
     }
     return el;
   });
@@ -60,7 +66,7 @@ const replacerCategories = (arr) => {
 const getters = {
   getLocale: ({ _locale }) => _locale,
   getCategories: ({ _categories }) => {
-    return _categories.length ? [replacerCategories(_categories)] : [];
+    return [_categories] || [];
   },
 };
 
