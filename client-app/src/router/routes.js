@@ -46,6 +46,13 @@ const routes = [
     component: () => import("../views/Account.vue"),
   },
   {
+    path: "/category/:id",
+    meta: {
+      title: "Категория",
+    },
+    component: () => import("../views/Category.vue"),
+  },
+  {
     path: "/about-us",
     meta: {
       title: "О компании",
