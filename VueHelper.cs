@@ -14,9 +14,9 @@ namespace EasyCard
 {
     public static class VueHelper
     {
-        private static int Port { get; } = 8085;
+        private static int Port { get; } = 8086;
         private static Uri DevelopmentServerEndpoint { get; } = new Uri($"http://localhost:{Port}");
-        private static TimeSpan Timeout { get; } = TimeSpan.FromSeconds(30);
+        private static TimeSpan Timeout { get; } = TimeSpan.FromSeconds(90);
         // done message of 'npm run serve' command.
         private static string DoneMessage { get; } = "DONE  Compiled successfully in";
 
