@@ -14,7 +14,7 @@ namespace EasyCard.Work
         {
             using (SiteContext db = new SiteContext())
             {
-                var Categories = db.Categories.AsNoTracking().Include(i=>i.SubCategories).ToList();
+                var Categories = db.Categories.AsNoTracking().Include(i=>i.DropdownItems).ToList();
                 return Categories.Where(i=>i.MainCategory).ToList();
             }
         }
@@ -25,10 +25,10 @@ namespace EasyCard.Work
             using (SiteContext db = new SiteContext())
             {
                 List<Category> Categories = new List<Category>();
-                Categories.Add(new Category() { CategoryName = "Sub", SubCategories = null });
-                Categories.Add(new Category() { CategoryName = "Sub2", SubCategories = null });
-                Categories.Add(new Category() { CategoryName = "Sub3", SubCategories = null });
-                db.Categories.Add(new Category() { CategoryName = "Main", SubCategories = Categories });
+                Categories.Add(new Category() { Label = "Sub", DropdownItems = null });
+                Categories.Add(new Category() { Label = "Sub2", DropdownItems = null });
+                Categories.Add(new Category() { Label = "Sub3", DropdownItems = null });
+                db.Categories.Add(new Category() { Label = "Main", DropdownItems = Categories });
                 db.SaveChanges();
             }
         }
