@@ -1,28 +1,26 @@
 <template>
-  <div>Catalog</div>
+  <BaseWrapper>
+    <CatalogCategories :categories="subCategories" />
+    <CatalogProducts :products="products" />
+  </BaseWrapper>
 </template>
 
 <script>
-import { API_REQUEST } from "@/modules/api";
+// import { API_REQUEST } from "@/modules/api";
+import CatalogCategories from "@/components/CatalogCategories";
+import CatalogProducts from "@/components/CatalogProducts";
 export default {
   name: "Catalog",
-  async mounted() {
-    if (!this.$route.params?.id) {
-      console.log(this.categories);
-    } else {
-      const category = this.$store.getters["shop/getCategoryById"](
-        this.$route.params.id
-      );
-
-      this.list = await API_REQUEST("GetProductsByCategory", {
-        categoryId: category.id,
-      });
-    }
+  components: {
+    CatalogProducts,
+    CatalogCategories,
   },
-  computed: {
-    categories() {
-      return this.$store.getters["shop/getCategories"];
-    },
+  data: () => ({
+    products: [],
+    subCategories: [],
+  }),
+  created() {
+    this.subCategories = this.$store.dispatch("shop/getCategoryById");
   },
 };
 </script>

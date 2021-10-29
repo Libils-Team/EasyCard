@@ -1,6 +1,6 @@
 <template>
   <div class="card-product">
-    {{ id }}
+    {{ title }}
   </div>
 </template>
 
@@ -10,7 +10,7 @@ export default {
   props: {
     priceCurrent: {
       type: [Number, String],
-      required: true,
+      default: 0,
     },
     priceOld: {
       type: [Number, String],
@@ -20,17 +20,14 @@ export default {
       type: String,
       default: "",
     },
-    id: {
-      type: [String, Number],
-      required: true,
-    },
+    id: [String, Number],
     title: {
       type: String,
-      required: true,
+      default: "",
     },
     imagePath: {
       type: String,
-      required: true,
+      default: "",
     },
     productCategory: {
       type: Object,
@@ -38,7 +35,7 @@ export default {
     },
     productCode: {
       type: [String, Number],
-      required: true,
+      default: 0,
     },
     productData: {
       type: [String, Object],

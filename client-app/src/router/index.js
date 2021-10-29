@@ -3,6 +3,8 @@ import routes from "@/router/routes";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 
+NProgress.configure({ showSpinner: false });
+
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
