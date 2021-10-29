@@ -2,7 +2,7 @@
   <div class="card-presentation">
     <router-link :to="path">
       <div class="card-presentation-image">
-        <img :src="image" :alt="title" />
+        <img :src="imagePath" :alt="title" />
       </div>
       <div class="card-presentation-title">
         <h2 class="headline">{{ title }}</h2>
@@ -58,7 +58,7 @@ export default {
       type: [String, Number],
       required: true,
     },
-    image: {
+    imagePath: {
       type: String,
       required: true,
     },

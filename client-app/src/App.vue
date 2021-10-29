@@ -1,9 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="loading-wrapper" v-if="$store.state.app._overlay">
-      <div class="loading-wrapper-overlay"></div>
-      <div class="loading-wrapper-loader"></div>
-    </div>
+    <BaseLoader :loading="$store.state.app._overlay" />
     <TheNavbar />
     <main>
       <div class="container">

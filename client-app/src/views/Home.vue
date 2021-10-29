@@ -1,20 +1,16 @@
 <template>
-  <section>
-    <div class="inner">
-      <div class="container">
-        <BaseCarousel to="5" :dotsIs="false">
-          <template #title>
-            <h2 class="headline">{{ $t("home.popularProductsTitle") }}</h2>
-          </template>
-          <template #sliders>
-            <BaseCarouselSlide v-for="item in list" :key="JSON.stringify(item)">
-              <ProductCardPresentation v-bind="item" />
-            </BaseCarouselSlide>
-          </template>
-        </BaseCarousel>
-      </div>
-    </div>
-  </section>
+  <BaseWrapper>
+    <BaseCarousel to="5" :dotsIs="false">
+      <template #title>
+        <h2 class="headline">{{ $t("home.popularProductsTitle") }}</h2>
+      </template>
+      <template #sliders>
+        <BaseCarouselSlide v-for="item in list" :key="JSON.stringify(item)">
+          <ProductCardPresentation v-bind="item" />
+        </BaseCarouselSlide>
+      </template>
+    </BaseCarousel>
+  </BaseWrapper>
 </template>
 
 <script>

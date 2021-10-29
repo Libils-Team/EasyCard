@@ -4,6 +4,8 @@ import BaseInput from "@/components/Base/BaseInput";
 import BaseMenuDropdown from "@/components/Base/BaseMenuDropdown";
 import BaseCarousel from "@/components/Base/BaseCarousel";
 import BaseCarouselSlide from "@/components/Base/BaseCarouselSlide";
+import BaseLoader from "@/components/Base/BaseLoader";
+import BaseWrapper from "@/components/Base/BaseWrapper";
 export default [
   BaseMenuDropdown,
   BaseInput,
@@ -11,4 +13,6 @@ export default [
   BaseButton,
   BaseCarousel,
   BaseCarouselSlide,
+  BaseLoader,
+  BaseWrapper,
 ];

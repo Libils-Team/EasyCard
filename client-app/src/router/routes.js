@@ -25,6 +25,7 @@ const routes = [
   },
   {
     path: "/cart",
+    name: "Cart",
     meta: {
       title: "Корзина",
     },
@@ -32,6 +33,7 @@ const routes = [
   },
   {
     path: "/delivery",
+    name: "Delivery",
     meta: {
       title: "Доставка",
     },
@@ -39,6 +41,7 @@ const routes = [
   },
   {
     path: "/account",
+    name: "Account",
     meta: {
       title: "Личный кабинет",
       requiresAuth: true,
@@ -47,6 +50,7 @@ const routes = [
   },
   {
     path: "/about-us",
+    name: "AboutUs",
     meta: {
       title: "О компании",
     },
@@ -54,6 +58,7 @@ const routes = [
   },
   {
     path: "/blog",
+    name: "Blog",
     meta: {
       title: "Наш блог",
     },
@@ -61,6 +66,7 @@ const routes = [
   },
   {
     path: "/favorites",
+    name: "Favorites",
     meta: {
       title: "Избранное",
     },
@@ -68,6 +74,7 @@ const routes = [
   },
   {
     path: "/payment",
+    name: "Payment",
     meta: {
       title: "Оплата",
     },
@@ -75,6 +82,7 @@ const routes = [
   },
   {
     path: "/contacts",
+    name: "Contacts",
     meta: {
       title: "Контакты",
     },

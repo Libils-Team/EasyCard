@@ -1,5 +1,4 @@
 import { API_REQUEST } from "@/modules/api";
-
 const deepClone = (val) => JSON.parse(JSON.stringify(val));
 
 const updateCachedItems = ({ itemsNew, itemsCached }) => {
@@ -30,6 +29,15 @@ const createrRoutesCategories = (arr) => {
     return el;
   });
 };
+
+// const findItemNested = (arr, itemId, nestingKey) => {
+//   return arr.reduce((a, item) => {
+//     if (a) return a;
+//     if (item.id === itemId) return item;
+//     if (item[nestingKey])
+//       return findItemNested(item[nestingKey], itemId, nestingKey);
+//   }, null);
+// };
 
 const state = () => ({
   categories: [],
@@ -121,6 +129,10 @@ const actions = {
 
     commit("SET_CART", updated);
   },
+
+  getCategoryById() {
+    return 1;
+  },
 };
 
 const getters = {
@@ -134,11 +146,6 @@ const getters = {
   getCategories: ({ categories }) => {
     return categories;
   },
-  getCategoryById:
-    ({ categories }) =>
-    (id) => {
-      return categories.find((category) => category.id === id) || {};
-    },
 };
 
 export default {
