@@ -15,9 +15,6 @@
 <script>
 export default {
   name: "BaseMenuDropdown",
-  props: {
-    title: String,
-  },
   data: () => ({
     isShow: false,
   }),

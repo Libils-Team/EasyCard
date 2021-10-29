@@ -1,8 +1,5 @@
-import { API_REQUEST } from "@/modules/api";
-
 const state = () => ({
   modal: null,
-  _categories: [],
   _overlay: [],
   _locale: "ru",
   _route: {},
@@ -12,9 +9,7 @@ const mutations = {
   SET_LOCALE(state, val) {
     state._locale = val;
   },
-  SET_CATEGORIES(state, categories) {
-    state._categories = categories;
-  },
+
   handleChangesRoute(state, route) {
     const routeKeys = Object.keys(route.query);
     const stateKeys = Object.keys(state).filter((key) => key[0] !== "_");
@@ -43,31 +38,13 @@ const actions = {
     const lang = localStorage.getItem("locale") || window.navigator.language;
     dispatch("changeLocale", lang);
 
-    const categories = await API_REQUEST("GetCategories");
-    commit("SET_CATEGORIES", replacerCategories(categories));
     await dispatch("shop/init", {}, { root: true });
     commit("SET_OVERLAY_LOAD", false);
   },
 };
 
-const replacerCategories = (arr) => {
-  return arr.map((el) => {
-    el.path = "/category/" + el.id;
-    if (el.dropdownMenu !== null) {
-      el.type = "dropdown";
-      el.dropdownMenu = replacerCategories(el.dropdownMenu);
-    } else {
-      el.type = "link";
-    }
-    return el;
-  });
-};
-
 const getters = {
   getLocale: ({ _locale }) => _locale,
-  getCategories: ({ _categories }) => {
-    return [_categories] || [];
-  },
 };
 
 export default {
