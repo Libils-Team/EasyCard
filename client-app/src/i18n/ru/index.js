@@ -76,6 +76,10 @@ export default {
 
   product: {
     priceFrom: "От",
+    followToCart: "Перейти",
+    counterProductInCartTitle: "В корзине",
+    counterProductInCartCount: "шт",
+
   },
   footer: {
     menu: [

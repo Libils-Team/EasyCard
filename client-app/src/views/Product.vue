@@ -1,7 +1,8 @@
 <template>
   <BaseWrapper>
-    <BaseLoader :loading="loading && !$store.state.app._overlay" />
-    <ProductCard v-bind="product" />
+    <keep-alive>
+      <ProductCard v-bind="product" />
+    </keep-alive>
   </BaseWrapper>
 </template>
 
@@ -14,16 +15,15 @@ export default {
   },
   data: () => ({
     product: {},
-    loading: false,
   }),
   async created() {
-    this.loading = true;
+    this.$store.commit("app/SET_OVERLAY_LOAD", true);
     const product = await this.$store.dispatch("shop/getProductsByIds", [
       this.$route.params.id,
     ]);
     if (product.length) this.product = product[0];
     else this.$router.push("/");
-    this.loading = false;
+    this.loading = this.$store.commit("app/SET_OVERLAY_LOAD", false);
   },
 };
 </script>
