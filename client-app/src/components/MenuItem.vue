@@ -1,7 +1,10 @@
 <template>
   <template v-if="item.type === 'link' || item.type === 'call-modal'">
     <a
-      v-if="item.type === 'link' && item.path.match(/tel:/)"
+      v-if="
+        item.type === 'link' &&
+        (item.path.match(/tel:/) || item.path.match(/mailto:/))
+      "
       class="menu-item__link flex align-center"
       :href="item.path"
     >

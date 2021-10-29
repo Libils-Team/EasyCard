@@ -46,13 +46,6 @@ const routes = [
     component: () => import("../views/Account.vue"),
   },
   {
-    path: "/category/:id",
-    meta: {
-      title: "Категория",
-    },
-    component: () => import("../views/Category.vue"),
-  },
-  {
     path: "/about-us",
     meta: {
       title: "О компании",
@@ -88,7 +81,7 @@ const routes = [
     component: () => import("../views/Contacts.vue"),
   },
   {
-    path: "/catalog",
+    path: "/catalog/:id",
     name: "Catalog",
     meta: {
       title: "Каталог",

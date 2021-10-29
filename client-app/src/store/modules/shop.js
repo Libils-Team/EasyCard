@@ -2,7 +2,37 @@ import { API_REQUEST } from "@/modules/api";
 
 const deepClone = (val) => JSON.parse(JSON.stringify(val));
 
+const updateCachedItems = ({ itemsNew, itemsCached }) => {
+  return itemsNew.map((itemNew) => {
+    return {
+      ...itemsCached.find((itemCached) => itemCached.id === itemNew.id),
+      ...itemNew,
+    };
+  });
+};
+
+const updateCachedItem = ({ itemNew, itemsCached }) => {
+  return itemsCached.map((el) => {
+    if (el.id === itemNew.id) return itemNew;
+    return el;
+  });
+};
+
+const createrRoutesCategories = (arr) => {
+  return arr.map((el) => {
+    el.path = "/catalog/" + el.id;
+    if (el.dropdownMenu !== null) {
+      el.type = "dropdown";
+      el.dropdownMenu = createrRoutesCategories(el.dropdownMenu);
+    } else {
+      el.type = "link";
+    }
+    return el;
+  });
+};
+
 const state = () => ({
+  categories: [],
   cart: {
     items: [],
     total: 0,
@@ -20,9 +50,12 @@ const mutations = {
   SET_CART(state, items) {
     state.cart.items = items;
     state.cart.total = items.reduce((acc, val) => {
-      return acc + val.priceCurrent * val.counterAddToCart;
+      return acc + val.priceCurrent * val.counterAddedToCart;
     }, 0);
     localStorage.setItem("cart", JSON.stringify(items));
+  },
+  SET_CATEGORIES(state, categories) {
+    state.categories = categories;
   },
 };
 
@@ -37,7 +70,7 @@ const actions = {
         cartCached.map((item) => item.id)
       );
 
-      const updated = await dispatch("updateCachedItems", {
+      const updated = updateCachedItems({
         itemsNew: cartShop,
         itemsCached: cartCached,
       });
@@ -50,72 +83,61 @@ const actions = {
         favoritesCached.map((item) => item.id)
       );
 
-      const updated = await dispatch("updateCachedItems", {
+      const updated = updateCachedItems({
         itemsNew: favoritesShop,
         itemsCached: favoritesCached,
       });
 
       commit("SET_FAVORITES", updated);
     }
+    const categories = await API_REQUEST("GetCategories");
+    commit("SET_CATEGORIES", createrRoutesCategories(categories));
   },
 
   async addToCart({ state, commit, dispatch }, id) {
     const item = await dispatch("getProductsByIds", [id]);
     const cart = deepClone(state.cart.items);
-    item[0].counterAddToCart = 1;
+    item[0].counterAddedToCart = 1;
     cart.push(item[0]);
     commit("SET_CART", cart);
-  },
-
-  async updateCartItemCounter({ state, dispatch, commit }, { id, action }) {
-    const item = deepClone(state.cart.items.find((el) => el.id === id));
-    if (action && item.counterAddToCart < 10) {
-      item.counterAddToCart++;
-    } else if (!action && item.counterAddToCart > 1) {
-      item.counterAddToCart--;
-    }
-
-    const updated = await dispatch("updateCachedItem", {
-      itemNew: item,
-      itemsCached: deepClone(state.cart.items),
-    });
-
-    commit("SET_CART", updated);
   },
 
   async getProductsByIds(ctx, ids) {
     return await API_REQUEST("GetProductById", { id: ids.toString() });
   },
 
-  updateCachedItems(ctx, { itemsNew, itemsCached }) {
-    return itemsNew.map((itemNew) => {
-      return {
-        ...itemsCached.find((itemCached) => itemCached.id === itemNew.id),
-        ...itemNew,
-      };
-    });
-  },
+  updateCartItemCounter({ state, commit }, { id, action }) {
+    const item = state.cart.items.find((el) => el.id === id);
+    if (action && item.counterAddedToCart < 10) {
+      item.counterAddedToCart++;
+    } else if (!action && item.counterAddedToCart > 1) {
+      item.counterAddedToCart--;
+    }
 
-  updateCachedItem(ctx, { itemNew, itemsCached }) {
-    return itemsCached.map((el) => {
-      if (el.id === itemNew.id) return itemNew;
-      return el;
+    const updated = updateCachedItem({
+      itemNew: item,
+      itemsCached: state.cart.items,
     });
+
+    commit("SET_CART", updated);
   },
 };
 
 const getters = {
   getCartItems: ({ cart }) => cart.items || [],
   getFavoritesItems: ({ favorites }) => favorites.items || [],
-  getCheckProductCartById:
+  getProductCartById:
     ({ cart }) =>
     (id) => {
-      return !!cart.items.find((item) => item.id === id);
+      return cart.items.find((item) => item.id === id) || {};
     },
-  getCounterAddToCartById:
-    ({ cart }) =>
+  getCategories: ({ categories }) => {
+    return categories;
+  },
+  getCategoryById:
+    ({ categories }) =>
     (id) => {
-      return cart.items.find((item) => item.id === id).counterAddToCart || 1;
+      return categories.find((category) => category.id === id) || {};
     },
 };
 

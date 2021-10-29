@@ -5,14 +5,14 @@ import router from "@/router";
 import store from "./store";
 import axios from "axios";
 import VueAxios from "vue-axios";
-import components from "@/components/Base";
+import UI from "@/components/Base";
 
 // Scss
 import "@/assets/scss/_config.scss";
 
 const app = createApp(App);
 
-components.forEach((component) => {
+UI.forEach((component) => {
   app.component(component.name, component);
 });
 
