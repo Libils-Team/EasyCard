@@ -36,8 +36,12 @@
           <router-link :to="$t('layout.paths.cart')">
             <BaseButton>
               <div class="flex justify-center flex-column">
-                <p>В корзине {{ productInCart.counterAddedToCart }} шт</p>
-                <small>Перейти</small>
+                <p>
+                  {{ $t("product.counterProductInCartTitle") }}
+                  {{ productInCart.counterAddedToCart }}
+                  {{ $t("product.counterProductInCartCount") }}
+                </p>
+                <small>{{ $t("product.followToCart") }}</small>
               </div>
             </BaseButton>
           </router-link>

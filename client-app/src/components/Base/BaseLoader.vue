@@ -17,7 +17,7 @@ export default {
 };
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .loading {
   &-wrapper {
     position: absolute;
@@ -25,11 +25,13 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
+    width: 100%;
+    height: 100%;
 
     &-overlay {
       position: relative;
-      background: $bgGrayShade;
-      opacity: 0.6;
+      background: $bgGray;
+      opacity: 0.5;
       width: 100%;
       height: 100%;
       z-index: 100;

@@ -75,6 +75,9 @@ export default {
 
   product: {
     priceFrom: "From",
+    followToCart: "Follow",
+    counterProductInCartTitle: "In cart",
+    counterProductInCartCount: "pcs",
   },
   footer: {
     menu: [
