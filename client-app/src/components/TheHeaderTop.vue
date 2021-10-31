@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import Menu from "@/components/Menu.vue";
+import Menu from "@/components/Menu";
 export default {
   components: { Menu },
-  name: "TheNavbarTop",
+  name: "TheHeaderTop",
   props: {
     menu: {
       type: [Object, Array],

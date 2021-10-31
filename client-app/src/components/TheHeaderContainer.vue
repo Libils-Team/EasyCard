@@ -1,18 +1,18 @@
 <template>
   <section>
-    <TheNavbarTop :menu="menuTop" />
-    <TheNavbarMain />
+    <TheHeaderTop :menu="menuTop" />
+    <TheHeaderMain />
   </section>
 </template>
 
 <script>
-import TheNavbarTop from "@/components/TheNavbarTop";
-import TheNavbarMain from "@/components/TheNavbarMain";
+import TheHeaderTop from "@/components/TheHeaderTop";
+import TheHeaderMain from "@/components/TheHeaderMain";
 export default {
-  name: "TheNavbar",
+  name: "TheHeaderContainer",
   components: {
-    TheNavbarTop,
-    TheNavbarMain,
+    TheHeaderTop,
+    TheHeaderMain,
   },
   computed: {
     locale() {

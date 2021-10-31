@@ -93,7 +93,7 @@
 
 <script>
 export default {
-  name: "TheNavbarMain",
+  name: "TheHeaderMain",
   data: () => ({
     search: "",
   }),

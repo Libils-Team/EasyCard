@@ -2,7 +2,7 @@
   <div class="card-presentation">
     <router-link :to="path">
       <div class="card-presentation-image">
-        <img :src="imagePath" :alt="title" />
+        <img :src="image" :alt="title" />
       </div>
       <div class="card-presentation-title">
         <h2 class="headline">{{ title }}</h2>
@@ -58,30 +58,56 @@
 export default {
   name: "ProductCardPresentation",
   props: {
-    id: {
-      type: [String, Number],
-      required: true,
-    },
-    imagePath: {
-      type: String,
-      required: true,
-    },
-    title: {
-      type: String,
-      required: true,
-    },
-    priceOld: {
-      type: [String, Number],
+    code: {
+      type: [String, Number, Boolean],
       default: "",
+    },
+    description: {
+      type: String,
+      default: "",
+    },
+    id: [Number, String],
+    image: {
+      type: String,
+      default: "",
+    },
+
+    imageGalery: {
+      type: Array,
+      default: null,
+    },
+    lates: Boolean,
+
+    priceCurrent: {
+      type: [String, Number],
+      default: 0,
     },
     priceFrom: {
       type: Boolean,
       default: false,
     },
-    priceCurrent: {
+    priceOld: {
       type: [String, Number],
-      required: true,
+      default: "",
     },
+    productCategory: {
+      type: Object,
+      default: () => ({}),
+    },
+    sale: {
+      type: Boolean,
+      default: false,
+    },
+    saleCount: {
+      type: [String, Number],
+      default: "",
+    },
+    shortTitle: {
+      type: String,
+      default: "",
+    },
+    specifications: String,
+    title: String,
   },
 
   methods: {

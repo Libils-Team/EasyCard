@@ -1,13 +1,12 @@
-import BaseButton from "@/components/Base/BaseButton";
-import BaseField from "@/components/Base/BaseField";
-import BaseInput from "@/components/Base/BaseInput";
-import BaseMenuDropdown from "@/components/Base/BaseMenuDropdown";
-import BaseCarousel from "@/components/Base/BaseCarousel";
-import BaseCarouselSlide from "@/components/Base/BaseCarouselSlide";
+import BaseButton from "@/components/Base/UI/BaseButton";
+import BaseInput from "@/components/Base/UI/BaseInput";
+import BaseField from "@/components/Base/UI/BaseField";
+import BaseCarousel from "@/components/Base/Carousel/BaseCarousel";
+import BaseCarouselSlide from "@/components/Base/Carousel/BaseCarouselSlide";
 import BaseLoader from "@/components/Base/BaseLoader";
 import BaseWrapper from "@/components/Base/BaseWrapper";
+
 export default [
-  BaseMenuDropdown,
   BaseInput,
   BaseField,
   BaseButton,

@@ -44,7 +44,7 @@
     </p>
   </div>
   <template v-if="item.type === 'dropdown'">
-    <BaseMenuDropdown>
+    <MenuDropdown>
       <template #title>
         <MenuItem :item="{ ...item, type: 'link', path: item.path }" />
       </template>
@@ -56,13 +56,17 @@
           <MenuItem :item="dropdownItem" />
         </template>
       </template>
-    </BaseMenuDropdown>
+    </MenuDropdown>
   </template>
 </template>
 
 <script>
+import MenuDropdown from "@/components/MenuDropdown";
 export default {
   name: "MenuItem",
+  components: {
+    MenuDropdown,
+  },
   props: {
     item: {
       type: [Object, Array],

@@ -9,7 +9,7 @@
 <script>
 import Menu from "@/components/Menu";
 export default {
-  name: "TheCategory",
+  name: "TheHeaderCategories",
   components: {
     Menu,
   },
