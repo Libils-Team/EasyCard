@@ -1,7 +1,19 @@
 <template>
   <BaseWrapper>
-    <CatalogCategories :categories="subCategories" />
-    <CatalogProducts :products="products" />
+    <CatalogCategories
+      :categories="subCategories"
+      v-if="
+        Object.keys(subCategories).length &&
+        Array.isArray(subCategories.dropdownMenu)
+      "
+    />
+    <CatalogProducts
+      :products="products"
+      v-if="
+        Object.keys(subCategories).length &&
+        !Array.isArray(subCategories.dropdownMenu)
+      "
+    />
   </BaseWrapper>
 </template>
 
@@ -17,10 +29,29 @@ export default {
   },
   data: () => ({
     products: [],
-    subCategories: [],
   }),
-  created() {
-    this.subCategories = this.$store.dispatch("shop/getCategoryById");
+  watch: {
+    subCategories() {
+      this.getProducts();
+    },
+  },
+  methods: {
+    async getProducts() {
+      if (
+        Object.keys(this.subCategories).length &&
+        !Array.isArray(this.subCategories.dropdownMenu)
+      ) {
+        this.products = await this.$store.dispatch(
+          "shop/getProductsByCategory",
+          { id: this.$route.params.id }
+        );
+      }
+    },
+  },
+  computed: {
+    subCategories() {
+      return this.$store.getters["shop/getCategoryById"](this.$route.params.id);
+    },
   },
 };
 </script>

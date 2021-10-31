@@ -30,14 +30,14 @@ const createrRoutesCategories = (arr) => {
   });
 };
 
-// const findItemNested = (arr, itemId, nestingKey) => {
-//   return arr.reduce((a, item) => {
-//     if (a) return a;
-//     if (item.id === itemId) return item;
-//     if (item[nestingKey])
-//       return findItemNested(item[nestingKey], itemId, nestingKey);
-//   }, null);
-// };
+const findItemNested = (arr, itemId, nestingKey) => {
+  return arr.reduce((a, item) => {
+    if (a) return a;
+    if (+item.id === +itemId) return item;
+    if (item[nestingKey])
+      return findItemNested(item[nestingKey], itemId, nestingKey);
+  }, null);
+};
 
 const state = () => ({
   categories: [],
@@ -114,6 +114,14 @@ const actions = {
     return await API_REQUEST("GetProductById", { id: ids.toString() });
   },
 
+  async getProductsByCategory(ctx, { categoryId, take = 0, offset = 10 }) {
+    return await API_REQUEST("GetProductsByCategory", {
+      categoryId,
+      offset,
+      take,
+    });
+  },
+
   updateCartItemCounter({ state, commit }, { id, action }) {
     const item = state.cart.items.find((el) => el.id === id);
     if (action && item.counterAddedToCart < 10) {
@@ -129,10 +137,6 @@ const actions = {
 
     commit("SET_CART", updated);
   },
-
-  getCategoryById() {
-    return 1;
-  },
 };
 
 const getters = {
@@ -146,6 +150,11 @@ const getters = {
   getCategories: ({ categories }) => {
     return categories;
   },
+  getCategoryById:
+    ({ categories }) =>
+    (id) => {
+      return findItemNested(categories, id, "dropdownMenu") || [];
+    },
 };
 
 export default {

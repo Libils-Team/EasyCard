@@ -79,7 +79,6 @@ export default {
     followToCart: "Перейти",
     counterProductInCartTitle: "В корзине",
     counterProductInCartCount: "шт",
-
   },
   footer: {
     menu: [

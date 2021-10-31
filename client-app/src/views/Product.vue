@@ -17,13 +17,11 @@ export default {
     product: {},
   }),
   async created() {
-    this.$store.commit("app/SET_OVERLAY_LOAD", true);
     const product = await this.$store.dispatch("shop/getProductsByIds", [
       this.$route.params.id,
     ]);
     if (product.length) this.product = product[0];
     else this.$router.push("/");
-    this.loading = this.$store.commit("app/SET_OVERLAY_LOAD", false);
   },
 };
 </script>
