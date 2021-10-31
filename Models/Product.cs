@@ -12,11 +12,16 @@ namespace EasyCard.Models
         public string Title { get; set; }
         public decimal PriceCurrent { get; set; }
         public decimal PriceOld { get; set; }
-        public string ImagePath { get; set; }
-        public Category ProductCategory { get; set; }
-        public int ProductCode { get; set; }
-        public string ProductData { get; set; }
+        public string Image { get; set; }
+        public string ImageGalery { get; set; }
+        public string ShortTitle { get; set; }
+        public decimal PriceFrom { get; set; }
+        public bool Sale { get; set; }
+        public int SaleCount { get; set; }
+        public bool Lates { get; set; }
+        public bool Code { get; set; }
         public string Description { get; set; }
-
+        public Category ProductCategory { get; set; }
+        public string specifications { get; set; }
     }
 }
