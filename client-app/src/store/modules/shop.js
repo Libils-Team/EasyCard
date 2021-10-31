@@ -1,21 +1,10 @@
 import { API_REQUEST } from "@/modules/api";
-const deepClone = (val) => JSON.parse(JSON.stringify(val));
-
-const updateCachedItems = ({ itemsNew, itemsCached }) => {
-  return itemsNew.map((itemNew) => {
-    return {
-      ...itemsCached.find((itemCached) => itemCached.id === itemNew.id),
-      ...itemNew,
-    };
-  });
-};
-
-const updateCachedItem = ({ itemNew, itemsCached }) => {
-  return itemsCached.map((el) => {
-    if (el.id === itemNew.id) return itemNew;
-    return el;
-  });
-};
+import {
+  updateItems,
+  updateItem,
+  findItemNested,
+  deepClone,
+} from "@/store/utils";
 
 const createrRoutesCategories = (arr) => {
   return arr.map((el) => {
@@ -28,15 +17,6 @@ const createrRoutesCategories = (arr) => {
     }
     return el;
   });
-};
-
-const findItemNested = (arr, itemId, nestingKey) => {
-  return arr.reduce((a, item) => {
-    if (a) return a;
-    if (+item.id === +itemId) return item;
-    if (item[nestingKey])
-      return findItemNested(item[nestingKey], itemId, nestingKey);
-  }, null);
 };
 
 const state = () => ({
@@ -78,9 +58,10 @@ const actions = {
         cartCached.map((item) => item.id)
       );
 
-      const updated = updateCachedItems({
+      const updated = updateItems({
         itemsNew: cartShop,
         itemsCached: cartCached,
+        nestingKey: "id",
       });
 
       commit("SET_CART", updated);
@@ -91,9 +72,10 @@ const actions = {
         favoritesCached.map((item) => item.id)
       );
 
-      const updated = updateCachedItems({
+      const updated = updateItems({
         itemsNew: favoritesShop,
         itemsCached: favoritesCached,
+        nestingKey: "id",
       });
 
       commit("SET_FAVORITES", updated);
@@ -114,7 +96,7 @@ const actions = {
     return await API_REQUEST("GetProductById", { id: ids.toString() });
   },
 
-  async getProductsByCategory(ctx, { categoryId, take = 0, offset = 10 }) {
+  async getProductsByCategory(ctx, { categoryId, take = 10, offset = 0 }) {
     return await API_REQUEST("GetProductsByCategory", {
       categoryId,
       offset,
@@ -130,9 +112,10 @@ const actions = {
       item.counterAddedToCart--;
     }
 
-    const updated = updateCachedItem({
+    const updated = updateItem({
       itemNew: item,
       itemsCached: state.cart.items,
+      nestingKey: "id",
     });
 
     commit("SET_CART", updated);

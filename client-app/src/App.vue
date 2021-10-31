@@ -1,30 +1,30 @@
 <template>
   <div class="wrapper">
     <BaseLoader :loading="$store.state.app._overlay" />
-    <TheNavbar />
+    <TheHeaderContainer />
     <main>
       <div class="container">
-        <TheCategory />
+        <TheHeaderCategories />
       </div>
       <router-view />
     </main>
     <TheFooter />
-    <ModalContainer />
+    <TheModalContainer />
   </div>
 </template>
 
 <script>
-import TheNavbar from "@/components/TheNavbar";
+import TheHeaderContainer from "@/components/TheHeaderContainer";
+import TheHeaderCategories from "@/components/TheHeaderCategories";
 import TheFooter from "@/components/TheFooter";
-import TheCategory from "@/components/TheCategory";
-import ModalContainer from "@/components/ModalContainer";
+import TheModalContainer from "@/components/TheModalContainer";
 export default {
   name: "App",
   components: {
-    TheNavbar,
-    ModalContainer,
+    TheHeaderContainer,
+    TheModalContainer,
     TheFooter,
-    TheCategory,
+    TheHeaderCategories,
   },
   async created() {
     await this.$store.dispatch("app/init");

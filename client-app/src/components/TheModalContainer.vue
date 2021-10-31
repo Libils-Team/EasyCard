@@ -5,7 +5,7 @@
 <script>
 import ModalChangeCity from "@/components/Modals/ModalChangeCity";
 export default {
-  name: "ModalContainer",
+  name: "TheModalContainer",
   components: {
     ModalChangeCity,
   },

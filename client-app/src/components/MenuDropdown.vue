@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: "BaseMenuDropdown",
+  name: "MenuDropdown",
   data: () => ({
     isShow: false,
   }),

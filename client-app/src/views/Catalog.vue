@@ -18,9 +18,8 @@
 </template>
 
 <script>
-// import { API_REQUEST } from "@/modules/api";
-import CatalogCategories from "@/components/CatalogCategories";
-import CatalogProducts from "@/components/CatalogProducts";
+import CatalogCategories from "@/components/Catalog/CatalogCategories";
+import CatalogProducts from "@/components/Catalog/CatalogProducts";
 export default {
   name: "Catalog",
   components: {
@@ -37,13 +36,10 @@ export default {
   },
   methods: {
     async getProducts() {
-      if (
-        Object.keys(this.subCategories).length &&
-        !Array.isArray(this.subCategories.dropdownMenu)
-      ) {
+      if (!Array.isArray(this.subCategories.dropdownMenu)) {
         this.products = await this.$store.dispatch(
           "shop/getProductsByCategory",
-          { id: this.$route.params.id }
+          { categoryId: this.$route.params.id }
         );
       }
     },

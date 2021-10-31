@@ -13,8 +13,5 @@ export default {
       default: () => [],
     },
   },
-  created() {
-    console.log(this.categories);
-  },
 };
 </script>

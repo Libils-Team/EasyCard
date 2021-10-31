@@ -142,7 +142,6 @@ export default {
 <style lang="scss" scoped>
 .carousel {
   padding-top: 40px;
-  margin: 40px 0;
   position: relative;
   display: block;
   box-sizing: border-box;

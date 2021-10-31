@@ -5,7 +5,10 @@
         <h2 class="headline">{{ $t("home.popularProductsTitle") }}</h2>
       </template>
       <template #sliders>
-        <BaseCarouselSlide v-for="item in list" :key="JSON.stringify(item)">
+        <BaseCarouselSlide
+          v-for="item in list"
+          :key="'product_presentation_' + item.id"
+        >
           <ProductCardPresentation v-bind="item" />
         </BaseCarouselSlide>
       </template>
@@ -14,8 +17,7 @@
 </template>
 
 <script>
-import ProductCardPresentation from "@/components/ProductCardPresentation";
-import { API_REQUEST } from "@/modules/api";
+import ProductCardPresentation from "@/components/Product/ProductCardPresentation";
 export default {
   components: { ProductCardPresentation },
   name: "Home",
@@ -23,7 +25,9 @@ export default {
     list: [],
   }),
   async created() {
-    this.list = await API_REQUEST("GetProductsByCategory", { categoryId: 10 });
+    this.list = await this.$store.dispatch("shop/getProductsByCategory", {
+      categoryId: 10,
+    });
   },
 };
 </script>
