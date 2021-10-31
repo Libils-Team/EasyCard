@@ -4,14 +4,16 @@ using EasyCard.Models.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EasyCard.Migrations
 {
     [DbContext(typeof(SiteContext))]
-    partial class SiteContextModelSnapshot : ModelSnapshot
+    [Migration("20211030174236_ProductUpdate")]
+    partial class ProductUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
