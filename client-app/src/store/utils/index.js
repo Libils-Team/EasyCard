@@ -16,12 +16,20 @@ export const updateItem = ({ itemNew, itemsCached, nestingKey }) => {
   });
 };
 
-export const findItemNested = (arr, itemId, nestingKey) => {
+export const removeItemNested = ({ arr, itemId, nestingKey }) => {
+  return arr.filter((el) => !(el[nestingKey] == itemId));
+};
+
+export const findItemNested = ({ arr, itemId, nestingKey }) => {
   return arr.reduce((a, item) => {
     if (a) return a;
     if (+item.id === +itemId) return item;
     if (item[nestingKey])
-      return findItemNested(item[nestingKey], itemId, nestingKey);
+      return findItemNested({
+        arr: item[nestingKey],
+        itemId,
+        nestingKey,
+      });
   }, null);
 };
 

@@ -79,6 +79,7 @@ export default {
     followToCart: "Перейти",
     counterProductInCartTitle: "В корзине",
     counterProductInCartCount: "шт",
+    removeItemFromList: "Вы уверены что хотите удалить из списка ?",
   },
   footer: {
     menu: [

@@ -4,6 +4,7 @@ import {
   updateItem,
   findItemNested,
   deepClone,
+  removeItemNested,
 } from "@/store/utils";
 
 const createrRoutesCategories = (arr) => {
@@ -52,7 +53,7 @@ const actions = {
     const favoritesCached = JSON.parse(localStorage.getItem("favorites")) || [];
     const cartCached = JSON.parse(localStorage.getItem("cart")) || [];
 
-    if (Object.keys(cartCached).length) {
+    if (cartCached.length) {
       const cartShop = await dispatch(
         "getProductsByIds",
         cartCached.map((item) => item.id)
@@ -66,7 +67,7 @@ const actions = {
 
       commit("SET_CART", updated);
     }
-    if (Object.keys(favoritesCached).length) {
+    if (favoritesCached.length) {
       const favoritesShop = await dispatch(
         "getProductsByIds",
         favoritesCached.map((item) => item.id)
@@ -104,6 +105,15 @@ const actions = {
     });
   },
 
+  removeItemFromCart({ state, commit }, id) {
+    const updated = removeItemNested({
+      arr: state.cart.items,
+      itemId: id,
+      nestingKey: "id",
+    });
+    commit("SET_CART", updated);
+  },
+
   updateCartItemCounter({ state, commit }, { id, action }) {
     const item = state.cart.items.find((el) => el.id === id);
     if (action && item.counterAddedToCart < 10) {
@@ -137,7 +147,13 @@ const getters = {
   getCategoryById:
     ({ categories }) =>
     (id) => {
-      return findItemNested(categories, id, "dropdownMenu") || [];
+      return (
+        findItemNested({
+          arr: categories,
+          itemId: id,
+          nestingKey: "dropdownMenu",
+        }) || []
+      );
     },
 };
 
