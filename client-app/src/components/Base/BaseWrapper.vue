@@ -13,3 +13,9 @@ export default {
   name: "BaseWrapper",
 };
 </script>
+
+<style lang="scss" scoped>
+section::v-deep {
+  margin: 30px 0;
+}
+</style>

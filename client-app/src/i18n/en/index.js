@@ -78,6 +78,7 @@ export default {
     followToCart: "Follow",
     counterProductInCartTitle: "In cart",
     counterProductInCartCount: "pcs",
+    removeItemFromList: "Are you sure you want to remove from the list?",
   },
   footer: {
     menu: [
