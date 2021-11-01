@@ -18,6 +18,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@-webkit-keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .loading {
   &-wrapper {
     position: absolute;

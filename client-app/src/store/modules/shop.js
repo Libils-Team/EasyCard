@@ -124,6 +124,7 @@ const actions = {
 
 const getters = {
   getCartItems: ({ cart }) => cart.items || [],
+  getCartItemsTotal: ({ cart }) => cart.total,
   getFavoritesItems: ({ favorites }) => favorites.items || [],
   getProductCartById:
     ({ cart }) =>

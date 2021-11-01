@@ -26,3 +26,33 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.header-top::v-deep {
+  .menu {
+    &-item {
+      &__lang {
+        p {
+          cursor: pointer;
+          transition: color 0.3s ease-in-out;
+          &:hover {
+            color: $colorTextDark;
+          }
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+      &__link {
+        color: $colorTextDark;
+        font-size: $textMd;
+        background-color: transparent;
+      }
+      &__text {
+        font-size: $textMd;
+        color: $colorTextDarkHalfShade;
+      }
+    }
+  }
+}
+</style>

@@ -98,3 +98,45 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.footer {
+  background: #fafafa;
+  flex: 0 0 auto;
+  padding: 2vw 0;
+  &-area {
+    &__sidebar::v-deep {
+      i {
+        font-size: $iconLg;
+        color: $colorTextDark;
+        cursor: pointer;
+        transition: color 0.3s ease;
+        &:hover {
+          color: $colorTextDarkMajorShade;
+        }
+      }
+    }
+    &__menu::v-deep {
+      .menu {
+        flex: 1 0 160px;
+        &-item {
+          &__link {
+            color: $colorTextDark;
+            font-size: $textSm;
+            background-color: transparent;
+          }
+          &__text {
+            color: $colorTextDark;
+            margin-bottom: 0.5rem;
+            font-size: $textSm;
+            font-weight: 500;
+          }
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+</style>

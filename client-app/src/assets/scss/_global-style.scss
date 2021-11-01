@@ -1,5 +1,44 @@
 $quanityPxMult: 4px;
 
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+html,
+body {
+  height: 100%;
+  font-size: 16px;
+  font-family: $fontFamilyDefault;
+}
+
+i {
+    color: $colorTextDarkHalfShade;
+    font-size: $iconMd;
+}
+
+.wrapper, #app{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+main {
+    position: relative;
+    flex: 1 0 auto;
+}
+
+header {
+    padding: 0.5vw 0;
+    li {
+        &:last-child {
+            margin: 0;
+        }
+    }
+}
+
+
 .flex{
     display: flex;
 }
@@ -36,10 +75,14 @@ $quanityPxMult: 4px;
 a{
     text-decoration: none;
     transition: color .3s ease-in;
+    color: $colorAccentText;
+
     &:hover{
         color: $colorTextDarkMajorShade !important;
     }
 }
+
+
 
 
 .text-half-gray{

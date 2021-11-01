@@ -107,3 +107,52 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.header-main {
+  &-panel {
+    width: 70%;
+    &__search {
+      margin: 0 5%;
+      width: 100%;
+    }
+  }
+  &-controls {
+    width: 30%;
+    justify-content: flex-end;
+    &__item {
+      position: relative;
+      margin-right: 5%;
+      &:last-child {
+        margin-right: 0;
+      }
+      i {
+        font-size: $iconLg;
+        color: $colorAccentText;
+      }
+      span {
+        margin-left: 15px;
+        color: $colorAccentText;
+        font-weight: bold;
+      }
+    }
+    &__counter {
+      position: absolute;
+      top: -10px;
+      left: 18px;
+      background-color: $colorAccentText;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 18px;
+      height: 18px;
+      line-height: 18px;
+      small {
+        font-size: $textXs;
+        color: $white;
+      }
+    }
+  }
+}
+</style>
