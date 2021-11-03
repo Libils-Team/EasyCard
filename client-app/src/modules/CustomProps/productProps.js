@@ -1,5 +1,7 @@
 export default {
   id: [Number, String],
+  specifications: String,
+  title: String,
   code: {
     type: [String, Number, Boolean],
     default: "",
@@ -16,7 +18,6 @@ export default {
     type: Array,
     default: null,
   },
-
   lates: {
     type: Boolean,
     default: false,
@@ -49,6 +50,8 @@ export default {
     type: String,
     default: "",
   },
-  specifications: String,
-  title: String,
+  counterAddedToCart: {
+    type: [String, Number],
+    default: "",
+  },
 };

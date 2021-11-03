@@ -5,7 +5,7 @@
         <ProductCardCart
           v-for="product in products"
           :key="'product_cart_item_' + product.id"
-          :product="product"
+          v-bind="product"
           @removeItem="removeItemFromCart"
           @updateItem="updateItemInCart"
         />

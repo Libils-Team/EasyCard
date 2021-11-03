@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import ProductProps from "@/modules/productProps";
+import ProductProps from "@/modules/CustomProps/productProps";
 export default {
   name: "ProductCard",
   props: {

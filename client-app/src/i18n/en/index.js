@@ -81,6 +81,7 @@ export default {
     removeItemFromList: "Are you sure you want to remove from the list?",
     latesTitle: "Latest",
     saleTitle: "Sale",
+    addToCart: "Add to cart",
   },
   footer: {
     menu: [
