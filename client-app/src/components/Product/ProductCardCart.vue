@@ -8,7 +8,9 @@
         <router-link style="flex: 1" class="headline" :to="path">
           {{ title }}
         </router-link>
-        <p class="mb-4">{{ priceCurrent }} {{ $t("layout.moneyTrack") }}</p>
+        <p class="mb-4 subline">
+          {{ priceCurrent }} {{ $t("layout.moneyTrack") }}
+        </p>
         <div class="card-product__actions flex align-center">
           <BaseButton
             @click.prevent="
@@ -21,7 +23,7 @@
           >
             -
           </BaseButton>
-          <BaseButton>
+          <BaseButton style="width: 70px">
             <div class="flex justify-center flex-column">
               <p>
                 {{ counterAddedToCart }}
@@ -81,12 +83,23 @@ export default {
       }
     }
     &__delete {
+      text-align: right;
       flex: 1;
+      cursor: pointer;
       i {
         font-size: $iconSm;
       }
     }
+    &__total {
+      p {
+        font-size: $textXl;
+        color: $colorTextDark;
+      }
+    }
     &__info {
+      .subline {
+        color: $colorTextDark;
+      }
       .headline {
         font-size: $textLg;
       }
