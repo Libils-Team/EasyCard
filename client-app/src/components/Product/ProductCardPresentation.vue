@@ -24,13 +24,21 @@
       </div>
       <div class="card-presentation-actions">
         <BaseButton
-          @click.prevent="addToCart"
+          @click.prevent="$emit('addToCart', id)"
           v-if="!Object.keys(productInCart).length"
         >
           {{ $t("product.addToCart") }}
         </BaseButton>
         <div v-else class="flex align-center">
-          <BaseButton @click.prevent="updateCart(false)" style="width: 25%">
+          <BaseButton
+            @click.prevent="
+              $emit('updateCart', {
+                action: false,
+                id,
+              })
+            "
+            style="width: 25%"
+          >
             -
           </BaseButton>
           <router-link :to="$t('layout.paths.cart')">
@@ -45,7 +53,15 @@
               </div>
             </BaseButton>
           </router-link>
-          <BaseButton @click.prevent="updateCart(true)" style="width: 25%">
+          <BaseButton
+            @click.prevent="
+              $emit('updateCart', {
+                action: true,
+                id,
+              })
+            "
+            style="width: 25%"
+          >
             +
           </BaseButton>
         </div>
@@ -81,18 +97,6 @@ export default {
   props: {
     ...ProductProps,
   },
-  methods: {
-    async addToCart() {
-      await this.$store.dispatch("shop/addToCart", this.id);
-    },
-    updateCart(action) {
-      this.$store.dispatch("shop/updateCartItemCounter", {
-        action,
-        id: this.id,
-      });
-    },
-  },
-
   computed: {
     productInCart() {
       return this.$store.getters["shop/getProductCartById"](this.id);

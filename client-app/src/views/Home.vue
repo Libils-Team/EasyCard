@@ -9,7 +9,11 @@
           v-for="item in list"
           :key="'product_presentation_' + item.id"
         >
-          <ProductCardPresentation v-bind="item" />
+          <ProductCardPresentation
+            v-bind="item"
+            @updateCart="updateCart"
+            @addToCart="addToCart"
+          />
         </BaseCarouselSlide>
       </template>
     </BaseCarousel>
@@ -28,6 +32,17 @@ export default {
     this.list = await this.$store.dispatch("shop/getProductsByCategory", {
       categoryId: 10,
     });
+  },
+  methods: {
+    async addToCart(id) {
+      await this.$store.dispatch("shop/addToCart", id);
+    },
+    updateCart({ action, id }) {
+      this.$store.dispatch("shop/updateCartItemCounter", {
+        action,
+        id,
+      });
+    },
   },
 };
 </script>
