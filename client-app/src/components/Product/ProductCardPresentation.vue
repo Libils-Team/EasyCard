@@ -8,9 +8,12 @@
         <h2 class="headline">{{ title }}</h2>
       </div>
       <div class="card-presentation-price">
-        <div class="card-presentation-price__old" v-if="priceOld">
+        <div
+          class="card-presentation-price__old"
+          :style="{ opacity: priceOld ? 1 : 0 }"
+        >
           <p class="text-half-gray">
-            {{ priceOld }} {{ $t("layout.moneyTrack") }}
+            {{ priceOld || 0 }} {{ $t("layout.moneyTrack") }}
           </p>
         </div>
         <div class="card-presentation-price__current flex">
