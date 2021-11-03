@@ -1,4 +1,4 @@
-import { API_REQUEST } from "@/modules/api";
+// import { API_REQUEST } from "@/modules/api";
 import {
   updateItems,
   updateItem,
@@ -6,6 +6,8 @@ import {
   deepClone,
   removeItemNested,
 } from "@/store/utils";
+
+import { getTempProducts, categories, getTempCategoryById } from "@/store/temp";
 
 const createrRoutesCategories = (arr) => {
   return arr.map((el) => {
@@ -81,7 +83,7 @@ const actions = {
 
       commit("SET_FAVORITES", updated);
     }
-    const categories = await API_REQUEST("GetCategories");
+    // const categories = await API_REQUEST("GetCategories");
     commit("SET_CATEGORIES", createrRoutesCategories(categories));
   },
 
@@ -94,15 +96,17 @@ const actions = {
   },
 
   async getProductsByIds(ctx, ids) {
-    return await API_REQUEST("GetProductById", { id: ids.toString() });
+    return await getTempProducts(ids);
+    // return await API_REQUEST("GetProductById", { id: ids.toString() });
   },
 
   async getProductsByCategory(ctx, { categoryId, take = 10, offset = 0 }) {
-    return await API_REQUEST("GetProductsByCategory", {
-      categoryId,
-      offset,
-      take,
-    });
+    return await getTempCategoryById({ categoryId, take, offset });
+    // return await API_REQUEST("GetProductsByCategory", {
+    //   categoryId,
+    //   offset,
+    //   take,
+    // });
   },
 
   removeItemFromCart({ state, commit }, id) {
