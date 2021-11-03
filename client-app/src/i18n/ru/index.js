@@ -80,6 +80,8 @@ export default {
     counterProductInCartTitle: "В корзине",
     counterProductInCartCount: "шт",
     removeItemFromList: "Вы уверены что хотите удалить из списка ?",
+    latesTitle: "Новинка",
+    saleTitle: "Распродажа",
   },
   footer: {
     menu: [

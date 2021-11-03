@@ -8,14 +8,14 @@
         <h2 class="headline">{{ title }}</h2>
       </div>
       <div class="card-presentation-price">
-        <div class="card-presentation-price__old" v-if="!!priceOld.length">
+        <div class="card-presentation-price__old" v-if="priceOld">
           <p class="text-half-gray">
             {{ priceOld }} {{ $t("layout.moneyTrack") }}
           </p>
         </div>
-        <div class="card-presentation-price__current flex align-center">
-          <span class="text-half-gray mr-2">
-            {{ priceFrom ? $t("product.priceFrom") : "" }}
+        <div class="card-presentation-price__current flex">
+          <span class="mr-2" v-if="priceFrom">
+            {{ $t("product.priceFrom") }}
           </span>
           <p>
             {{ priceCurrent + $t("layout.moneyTrack") }}
@@ -50,66 +50,37 @@
           </BaseButton>
         </div>
       </div>
+
+      <div class="card-presentation-small-info flex align-center">
+        <div class="card-presentation-small-info__item" v-if="lates">
+          <p>{{ $t("product.latesTitle") }}</p>
+        </div>
+        <div class="card-presentation-small-info__item" v-if="sale">
+          <p>
+            {{ $t("product.saleTitle") }}
+          </p>
+        </div>
+        <div
+          class="
+            card-presentation-small-info__item
+            card-presentation-small-info__item--accent-red
+          "
+          v-if="saleCount"
+        >
+          <p>{{ saleCount }}%</p>
+        </div>
+      </div>
     </router-link>
   </div>
 </template>
 
 <script>
+import ProductProps from "@/modules/productProps";
 export default {
   name: "ProductCardPresentation",
   props: {
-    code: {
-      type: [String, Number, Boolean],
-      default: "",
-    },
-    description: {
-      type: String,
-      default: "",
-    },
-    id: [Number, String],
-    image: {
-      type: String,
-      default: "",
-    },
-
-    imageGalery: {
-      type: Array,
-      default: null,
-    },
-    lates: Boolean,
-
-    priceCurrent: {
-      type: [String, Number],
-      default: 0,
-    },
-    priceFrom: {
-      type: Boolean,
-      default: false,
-    },
-    priceOld: {
-      type: [String, Number],
-      default: "",
-    },
-    productCategory: {
-      type: Object,
-      default: () => ({}),
-    },
-    sale: {
-      type: Boolean,
-      default: false,
-    },
-    saleCount: {
-      type: [String, Number],
-      default: "",
-    },
-    shortTitle: {
-      type: String,
-      default: "",
-    },
-    specifications: String,
-    title: String,
+    ...ProductProps,
   },
-
   methods: {
     async addToCart() {
       await this.$store.dispatch("shop/addToCart", this.id);
@@ -136,10 +107,57 @@ export default {
 <style lang="scss" scoped>
 .card {
   &-presentation {
+    position: relative;
     margin: 10px 10px 10px 0;
+    &-small-info {
+      position: absolute;
+      top: 0;
+      left: 0;
+      &__item {
+        margin: 0 5px 5px 0;
+        padding: 0.35em;
+        line-height: 1;
+        border-radius: 0;
+        background-color: $colorAccentText;
+        p {
+          font-size: $textSm;
+          color: $white;
+        }
+        &--accent-red {
+          background: #ff4a31;
+        }
+      }
+    }
+
+    &-price {
+      &__current {
+        span {
+          align-self: flex-end;
+        }
+        p {
+          line-height: 28px;
+        }
+      }
+    }
+    &:hover {
+      .card-presentation-actions {
+        opacity: 1;
+      }
+    }
+    &-actions {
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
     &-image {
+      width: 248px;
+      height: 248px;
       img {
+        height: 100%;
         width: 100%;
+        max-width: none;
+        max-height: none;
+        object-position: 50% 50%;
+        object-fit: contain;
       }
     }
     &-title {
@@ -147,7 +165,7 @@ export default {
       h2 {
         word-break: break-word;
         color: $colorTextDark;
-        font-weight: 300;
+        font-weight: 400;
         font-size: $textLg;
       }
     }
@@ -156,17 +174,16 @@ export default {
       margin-bottom: 0.5rem;
       &__old {
         p {
-          word-break: nowrap;
-
+          word-break: break-word;
           font-weight: 400;
-          font-size: $textMd;
+          font-size: $textLg;
           text-decoration: line-through;
         }
       }
       &__current {
         p {
           color: $colorTextDark;
-          word-break: nowrap;
+          word-break: break-word;
           font-weight: 600;
           font-size: $textXl;
         }

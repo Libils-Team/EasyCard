@@ -12,7 +12,15 @@
           {{ product.priceCurrent }} {{ $t("layout.moneyTrack") }}
         </p>
         <div class="card-product__actions flex align-center">
-          <BaseButton @click.prevent="updateCart(false)" style="width: 40px">
+          <BaseButton
+            @click.prevent="
+              $emit('updateItem', {
+                action: false,
+                id: product.id,
+              })
+            "
+            style="width: 40px"
+          >
             -
           </BaseButton>
           <BaseButton>
@@ -23,14 +31,25 @@
               </p>
             </div>
           </BaseButton>
-          <BaseButton @click.prevent="updateCart(true)" style="width: 40px">
+          <BaseButton
+            @click.prevent="
+              $emit('updateItem', {
+                action: true,
+                id: product.id,
+              })
+            "
+            style="width: 40px"
+          >
             +
           </BaseButton>
         </div>
       </div>
     </div>
     <div class="card-product__other flex flex-column">
-      <div class="card-product__delete" @click="removeItemFromCart">
+      <div
+        class="card-product__delete"
+        @click="$emit('removeItem', product.id)"
+      >
         <i class="fas fa-times text-half-gray"></i>
       </div>
       <div class="card-product__total">
@@ -50,20 +69,6 @@ export default {
     product: {
       type: Object,
       default: () => ({}),
-    },
-  },
-  methods: {
-    updateCart(action) {
-      this.$store.dispatch("shop/updateCartItemCounter", {
-        action,
-        id: this.product.id,
-      });
-    },
-    removeItemFromCart() {
-      let ok = confirm(this.$t("product.removeItemFromList"));
-      if (ok) {
-        this.$store.dispatch("shop/removeItemFromCart", this.product.id);
-      }
     },
   },
   computed: {

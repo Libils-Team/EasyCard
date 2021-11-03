@@ -79,6 +79,8 @@ export default {
     counterProductInCartTitle: "In cart",
     counterProductInCartCount: "pcs",
     removeItemFromList: "Are you sure you want to remove from the list?",
+    latesTitle: "Latest",
+    saleTitle: "Sale",
   },
   footer: {
     menu: [
