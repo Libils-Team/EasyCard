@@ -1,6 +1,6 @@
 <template>
   <div class="card-product">
-    {{ title }}
+      {{ title }}
   </div>
 </template>
 
