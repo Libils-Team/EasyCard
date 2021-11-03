@@ -27,7 +27,7 @@
           @click.prevent="addToCart"
           v-if="!Object.keys(productInCart).length"
         >
-          В корзину
+          {{ $t("product.addToCart") }}
         </BaseButton>
         <div v-else class="flex align-center">
           <BaseButton @click.prevent="updateCart(false)" style="width: 25%">
@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import ProductProps from "@/modules/productProps";
+import ProductProps from "@/modules/CustomProps/productProps";
 export default {
   name: "ProductCardPresentation",
   props: {

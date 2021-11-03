@@ -82,6 +82,7 @@ export default {
     removeItemFromList: "Вы уверены что хотите удалить из списка ?",
     latesTitle: "Новинка",
     saleTitle: "Распродажа",
+    addToCart: "В корзину",
   },
   footer: {
     menu: [

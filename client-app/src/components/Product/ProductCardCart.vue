@@ -2,21 +2,19 @@
   <div class="card-product flex justify-between">
     <div class="card-product__detail flex">
       <div class="card-product__image">
-        <img :src="product.image" :alt="product.title" />
+        <img :src="image" :alt="title" />
       </div>
       <div class="card-product__info flex-column flex">
         <router-link style="flex: 1" class="headline" :to="path">
-          {{ product.title }}
+          {{ title }}
         </router-link>
-        <p class="mb-4">
-          {{ product.priceCurrent }} {{ $t("layout.moneyTrack") }}
-        </p>
+        <p class="mb-4">{{ priceCurrent }} {{ $t("layout.moneyTrack") }}</p>
         <div class="card-product__actions flex align-center">
           <BaseButton
             @click.prevent="
               $emit('updateItem', {
                 action: false,
-                id: product.id,
+                id,
               })
             "
             style="width: 40px"
@@ -26,7 +24,7 @@
           <BaseButton>
             <div class="flex justify-center flex-column">
               <p>
-                {{ product.counterAddedToCart }}
+                {{ counterAddedToCart }}
                 {{ $t("product.counterProductInCartCount") }}
               </p>
             </div>
@@ -35,7 +33,7 @@
             @click.prevent="
               $emit('updateItem', {
                 action: true,
-                id: product.id,
+                id,
               })
             "
             style="width: 40px"
@@ -46,15 +44,12 @@
       </div>
     </div>
     <div class="card-product__other flex flex-column">
-      <div
-        class="card-product__delete"
-        @click="$emit('removeItem', product.id)"
-      >
+      <div class="card-product__delete" @click="$emit('removeItem', id)">
         <i class="fas fa-times text-half-gray"></i>
       </div>
       <div class="card-product__total">
         <p>
-          {{ product.counterAddedToCart * product.priceCurrent }}
+          {{ counterAddedToCart * priceCurrent }}
           {{ $t("layout.moneyTrack") }}
         </p>
       </div>
@@ -63,17 +58,15 @@
 </template>
 
 <script>
+import ProductProps from "@/modules/CustomProps/productProps";
 export default {
   name: "ProductCardCart",
   props: {
-    product: {
-      type: Object,
-      default: () => ({}),
-    },
+    ...ProductProps,
   },
   computed: {
     path() {
-      return `/product/${this.product.id}`;
+      return `/product/${this.id}`;
     },
   },
 };
