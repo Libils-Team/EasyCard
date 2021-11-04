@@ -40,7 +40,7 @@
                 id,
               })
             "
-            style="width: 25%"
+            style="width: 20%"
           >
             -
           </BaseButton>
@@ -63,7 +63,7 @@
                 id,
               })
             "
-            style="width: 25%"
+            style="width: 20%"
           >
             +
           </BaseButton>
