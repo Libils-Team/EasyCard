@@ -5,6 +5,7 @@
     <main>
       <div class="container">
         <TheHeaderCategories />
+        <Breadcrumbs class="mt-5" />
       </div>
       <router-view />
     </main>
@@ -15,6 +16,7 @@
 
 <script>
 import TheHeaderContainer from "@/components/TheHeaderContainer";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import TheHeaderCategories from "@/components/TheHeaderCategories";
 import TheFooter from "@/components/TheFooter";
 import TheModalContainer from "@/components/TheModalContainer";
@@ -25,6 +27,7 @@ export default {
     TheModalContainer,
     TheFooter,
     TheHeaderCategories,
+    Breadcrumbs,
   },
   async created() {
     await this.$store.dispatch("app/init");
