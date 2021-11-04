@@ -101,7 +101,7 @@ export default {
         color: $colorTextDark;
       }
       .headline {
-        font-size: $textLg;
+        font-size: $textLg + 0.2;
       }
     }
     &__image {
