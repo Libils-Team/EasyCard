@@ -101,7 +101,7 @@ export default {
   width: 100%;
 }
 .card-product::v-deep {
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   &:last-child {
     margin-bottom: 0;
   }
@@ -109,7 +109,7 @@ export default {
 .cart {
   &-items {
     width: 70%;
-    margin-right: 30px;
+    margin-right: 60px;
     position: relative;
   }
 

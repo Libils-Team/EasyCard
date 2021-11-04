@@ -79,7 +79,7 @@ export default {
   &-product {
     &__actions::v-deep {
       button {
-        height: 35 px;
+        height: 35px;
       }
     }
     &__delete {
@@ -105,8 +105,8 @@ export default {
       }
     }
     &__image {
-      width: 132px;
-      height: 132px;
+      width: 142px;
+      height: 142px;
       img {
         object-position: 50% 0;
       }
