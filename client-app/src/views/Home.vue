@@ -1,6 +1,6 @@
 <template>
   <BaseWrapper>
-    <BaseCarousel to="5" :dotsIs="false">
+    <BaseCarousel to="5" :dotsIs="false" v-if="list.length">
       <template #title>
         <h2 class="headline">{{ $t("home.popularProductsTitle") }}</h2>
       </template>

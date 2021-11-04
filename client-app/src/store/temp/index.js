@@ -66,6 +66,67 @@ export const products = [
   },
 
   {
+    id: 12331,
+    code: 1,
+    description: "test",
+    image:
+      "https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
+    imageGalery: null,
+    lates: random(true),
+    priceCurrent: random(),
+    priceFrom: random(true),
+    priceOld: random(),
+    productCategory: {
+      id: 10,
+    },
+    sale: random(true),
+    saleCount: random(false, true),
+    shortTitle: "",
+    specifications: "",
+    title: "Какой то интересный и длинный заголовок товара",
+  },
+  {
+    id: 3211,
+    code: 1,
+    description: "test",
+    image:
+      "https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
+    imageGalery: null,
+    lates: random(true),
+    priceCurrent: random(),
+    priceFrom: random(true),
+    priceOld: random(),
+    productCategory: {
+      id: 10,
+    },
+    sale: random(true),
+    saleCount: random(false, true),
+    shortTitle: "",
+    specifications: "",
+    title: "Какой то интересный и длинный заголовок товара",
+  },
+  {
+    id: 123,
+    code: 1,
+    description: "test",
+    image:
+      "https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
+    imageGalery: null,
+    lates: random(true),
+    priceCurrent: random(),
+    priceFrom: random(true),
+    priceOld: random(),
+    productCategory: {
+      id: 10,
+    },
+    sale: random(true),
+    saleCount: random(false, true),
+    shortTitle: "",
+    specifications: "",
+    title: "Какой то интересный и длинный заголовок товара",
+  },
+
+  {
     id: 4,
     code: 1,
     description: "test",
