@@ -158,14 +158,6 @@ export default {
     &-image {
       width: 248px;
       height: 248px;
-      img {
-        height: 100%;
-        width: 100%;
-        max-width: none;
-        max-height: none;
-        object-position: 50% 50%;
-        object-fit: contain;
-      }
     }
     &-title {
       margin-bottom: 0.5rem;

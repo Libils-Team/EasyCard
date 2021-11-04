@@ -6,7 +6,9 @@
       <div class="container">
         <TheHeaderCategories />
       </div>
-      <router-view />
+      <keep-alive>
+        <router-view />
+      </keep-alive>
     </main>
     <TheFooter />
     <TheModalContainer />
