@@ -44,6 +44,9 @@ export default {
       }
     },
   },
+  async created(){
+    await this.getProducts();
+  },
   computed: {
     subCategories() {
       return this.$store.getters["shop/getCategoryById"](this.$route.params.id);
