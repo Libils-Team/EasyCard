@@ -28,7 +28,7 @@
         <transition name="no-products">
           <div class="cart-total-wrapper" v-if="products.length">
             <h2 class="flex align-center justify-between">
-              <span>Total:</span>
+              <span>{{ $t("product.totalCartTitle") }}:</span>
               <span>{{ total }} {{ $t("layout.moneyTrack") }}</span>
             </h2>
             <router-link to="/checkout">

@@ -85,6 +85,7 @@ export default {
     addToCart: "В корзину",
     checkoutBtnTitle: "Оформить заказ",
     noProductsInCartTitle: "Ваша корзина пуста",
+    totalCartTitle: "Итого к оплате",
   },
   footer: {
     menu: [
