@@ -4,27 +4,6 @@
       <h1 class="mt-5 headline">{{ headline || $route.meta.title }}</h1>
     </div>
   </section>
-  <section v-if="breadcrumbs.length">
-    <div class="container">
-      <div class="breadcrumbs">
-        <div class="breadcrumbs-item">
-          <router-link to="/">
-            <span>Главная</span>
-          </router-link>
-        </div>
-        <div
-          class="breadcrumbs-item"
-          v-for="({ title, path }, i) in breadcrumbs"
-          :key="'breadcrumb_item_' + i"
-        >
-          /
-          <router-link :to="path">
-            <span> {{ title }}</span>
-          </router-link>
-        </div>
-      </div>
-    </div>
-  </section>
   <section>
     <div class="inner">
       <div class="container">
@@ -45,10 +24,6 @@ export default {
     headlineShow: {
       type: Boolean,
       default: false,
-    },
-    breadcrumbs: {
-      type: Array,
-      default: () => [],
     },
   },
 };
