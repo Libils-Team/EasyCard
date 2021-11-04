@@ -30,6 +30,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.headline {
+  font-size: $textXl + 0.2;
+}
 .inner::v-deep {
   margin-top: 40px;
   margin-bottom: 80px;
