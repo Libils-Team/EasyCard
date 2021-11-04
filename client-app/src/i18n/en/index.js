@@ -82,6 +82,8 @@ export default {
     latesTitle: "Latest",
     saleTitle: "Sale",
     addToCart: "Add to cart",
+    checkoutBtnTitle: "Checkout",
+    noProductsInCartTitle: "Your cart is empty",
   },
   footer: {
     menu: [
