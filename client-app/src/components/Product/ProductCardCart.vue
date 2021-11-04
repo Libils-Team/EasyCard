@@ -108,9 +108,6 @@ export default {
       width: 132px;
       height: 132px;
       img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
         object-position: 50% 0;
       }
     }

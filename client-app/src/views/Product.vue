@@ -1,8 +1,6 @@
 <template>
   <BaseWrapper>
-    <keep-alive>
-      <ProductCard v-bind="product" />
-    </keep-alive>
+    <ProductCard v-bind="product" />
   </BaseWrapper>
 </template>
 
