@@ -48,7 +48,7 @@ export default {
       &:hover {
         box-shadow: 0 8px 8px 0 rgb(0 0 0 / 5%), 0 29px 26px 0 rgb(0 0 0 / 8%);
       }
-      p{
+      p {
         color: $colorTextDark;
         font-size: $textMd;
         font-weight: bold;
