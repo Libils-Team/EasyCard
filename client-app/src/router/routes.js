@@ -11,7 +11,7 @@ const routes = [
     path: "/product/:id",
     name: "Product",
     meta: {
-      title: "продукт",
+      title: "Продукт",
     },
     component: () => import("../views/Product.vue"),
   },
