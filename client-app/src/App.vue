@@ -5,7 +5,13 @@
     <main>
       <div class="container">
         <TheHeaderCategories />
-        <Breadcrumbs class="mt-5" />
+        <Breadcrumbs
+          class="mt-5"
+          :breadcrumbs="[
+            { path: '/', title: 'test' },
+            { path: '/', title: 'test2' },
+          ]"
+        />
       </div>
       <router-view />
     </main>
