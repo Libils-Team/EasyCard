@@ -83,6 +83,8 @@ export default {
     latesTitle: "Новинка",
     saleTitle: "Распродажа",
     addToCart: "В корзину",
+    checkoutBtnTitle: "Оформить заказ",
+    noProductsInCartTitle: "Ваша корзина пуста",
   },
   footer: {
     menu: [

@@ -19,7 +19,7 @@
         <transition name="no-products">
           <div v-if="!products.length">
             <p style="font-size: 1.2rem; font-weight: 500">
-              Ваша корзина пуста
+              {{ $t("product.noProductsInCartTitle") }}
             </p>
           </div>
         </transition>
@@ -32,7 +32,7 @@
               <span>{{ total }} {{ $t("layout.moneyTrack") }}</span>
             </h2>
             <router-link to="/checkout">
-              <BaseButton> Оформить заказ </BaseButton>
+              <BaseButton> {{ $t("product.checkoutBtnTitle") }} </BaseButton>
             </router-link>
           </div>
         </transition>

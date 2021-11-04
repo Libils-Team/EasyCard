@@ -44,7 +44,7 @@ export default {
       }
     },
   },
-  async created(){
+  async created() {
     await this.getProducts();
   },
   computed: {
