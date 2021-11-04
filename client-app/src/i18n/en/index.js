@@ -84,6 +84,7 @@ export default {
     addToCart: "Add to cart",
     checkoutBtnTitle: "Checkout",
     noProductsInCartTitle: "Your cart is empty",
+    totalCartTitle: "Total",
   },
   footer: {
     menu: [
