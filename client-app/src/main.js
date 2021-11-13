@@ -3,8 +3,6 @@ import App from "./App.vue";
 import i18n from "@/core/i18n";
 import router from "@/router";
 import store from "./store";
-import axios from "axios";
-import VueAxios from "vue-axios";
 import Base from "@/components/Base";
 
 // Scss
@@ -16,4 +14,4 @@ Base.forEach((component) => {
   app.component(component.name, component);
 });
 
-app.use(i18n).use(VueAxios, axios).use(store).use(router).mount("#app");
+app.use(i18n).use(store).use(router).mount("#app");
