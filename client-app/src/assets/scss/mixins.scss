@@ -1,7 +1,0 @@
-@mixin marginGlobal($property, $margin, $quanity, $count) {
-  @for $i from 1 through $count {
-    #{"." + $property + "-" + $i} {
-      #{$margin}: $quanity * $i;
-    } 
-  }
-}

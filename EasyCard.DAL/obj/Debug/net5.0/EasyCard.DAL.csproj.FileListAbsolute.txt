@@ -1,0 +1,5 @@
+K:\Users\Коля\source\repos\EasyCard\EasyCard.DAL\bin\Debug\net5.0\EasyCard.DTL.dll
+K:\Users\Коля\source\repos\EasyCard\EasyCard.DAL\obj\Debug\net5.0\EasyCard.DAL.csprojAssemblyReference.cache
+K:\Users\Коля\source\repos\EasyCard\EasyCard.DAL\obj\Debug\net5.0\EasyCard.DAL.GeneratedMSBuildEditorConfig.editorconfig
+K:\Users\Коля\source\repos\EasyCard\EasyCard.DAL\obj\Debug\net5.0\EasyCard.DAL.AssemblyInfoInputs.cache
+K:\Users\Коля\source\repos\EasyCard\EasyCard.DAL\obj\Debug\net5.0\EasyCard.DAL.AssemblyInfo.cs
