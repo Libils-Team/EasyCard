@@ -80,8 +80,8 @@
             <div class="header-main-controls__counter" v-if="countCartItems">
               <small>{{ countCartItems }}</small>
             </div>
-            <span
-              >{{ $store.state.shop.cart.total }}
+            <span>
+              {{ $store.state.shop.cart.total }}
               {{ $t("layout.moneyTrack") }}</span
             >
           </div>

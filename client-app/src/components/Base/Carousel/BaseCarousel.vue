@@ -95,7 +95,7 @@ export default {
     },
     calculate(sliders) {
       this.clientWidth = this.$refs.list.clientWidth;
-      this.moveWidth = this.clientWidth;
+      this.moveContain = this.clientWidth;
       this.slideWidth = Math.ceil(this.clientWidth / this.to);
       this.trackWidth = Math.ceil(this.slideWidth * sliders.length);
       this.countPage = Math.ceil(sliders.length / this.to);
@@ -116,7 +116,7 @@ export default {
     },
     moveTrack() {
       this.$refs.track.style.transform = `translateX(-${
-        this.moveWidth * this.activeIndex
+        this.moveContain * this.activeIndex
       }px)`;
     },
     intervalHoldOn() {
