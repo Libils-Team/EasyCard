@@ -55,9 +55,10 @@
 
 <script>
 import ProductProps from "@/modules/CustomProps/productProps";
-import ProductButton from "./ProductButton.vue";
+import ProductButton from "@/components/Product/ProductButton";
 export default {
   name: "ProductCardPresentation",
+  components: { ProductButton },
   props: {
     ...ProductProps,
   },
@@ -66,7 +67,6 @@ export default {
       return `/product/${this.id}`;
     },
   },
-  components: { ProductButton },
 };
 </script>
 
@@ -106,11 +106,11 @@ export default {
       }
     }
     &:hover {
-      &::v-deep .card-actions {
+      &::v-deep(.card-actions) {
         opacity: 1;
       }
     }
-    &::v-deep .card-actions {
+    &::v-deep(.card-actions) {
       transition: opacity 0.3s ease;
       opacity: 0;
       a {

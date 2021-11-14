@@ -34,14 +34,13 @@ export default {
     });
   },
   methods: {
-    async addNewItem(id) {
-      await this.$store.dispatch("shop/addNewItemCart", id);
+    addNewItem(id) {
+      console.log(`Add new item ${id} in cart`);
+      // В ProductButton уже добавил
     },
     updateItem({ action, id }) {
-      this.$store.dispatch("shop/updateItemCart", {
-        action,
-        id,
-      });
+      console.log(`Cart item ${id} is update: ${action}`);
+      // В ProductButton уже обновил
     },
   },
 };

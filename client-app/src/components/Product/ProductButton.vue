@@ -1,7 +1,7 @@
 <template>
   <div class="card-actions">
     <BaseButton
-      @click.prevent="$emit('addNewItem', id)"
+      @click.prevent="handleAddNewItem"
       v-if="
         !Object.keys(productInCart).length &&
         $route.path !== $t('layout.paths.cart')
@@ -52,7 +52,15 @@ export default {
     },
   },
   methods: {
+    async handleAddNewItem() {
+      await this.$store.dispatch("shop/addNewItemCart", this.id);
+      this.$emit("addNewItem", this.id);
+    },
     handleUpdateItem(action) {
+      this.$store.dispatch("shop/updateItemCart", {
+        action,
+        id: this.id,
+      });
       this.$emit("updateItem", {
         action,
         id: this.id,
