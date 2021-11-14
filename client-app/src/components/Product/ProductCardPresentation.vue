@@ -25,51 +25,11 @@
           </p>
         </div>
       </div>
-      <div class="card-presentation-actions">
-        <BaseButton
-          @click.prevent="$emit('addToCart', id)"
-          v-if="!Object.keys(productInCart).length"
-        >
-          {{ $t("product.addToCart") }}
-        </BaseButton>
-        <div v-else class="flex align-center">
-          <BaseButton
-            @click.prevent="
-              $emit('updateCart', {
-                action: false,
-                id,
-              })
-            "
-            style="width: 20%"
-          >
-            -
-          </BaseButton>
-          <router-link :to="$t('layout.paths.cart')">
-            <BaseButton>
-              <div class="flex justify-center flex-column">
-                <p>
-                  {{ $t("product.counterProductInCartTitle") }}
-                  {{ productInCart.counterAddedToCart }}
-                  {{ $t("product.counterProductInCartCount") }}
-                </p>
-                <small>{{ $t("product.followToCart") }}</small>
-              </div>
-            </BaseButton>
-          </router-link>
-          <BaseButton
-            @click.prevent="
-              $emit('updateCart', {
-                action: true,
-                id,
-              })
-            "
-            style="width: 20%"
-          >
-            +
-          </BaseButton>
-        </div>
-      </div>
-
+      <ProductButton
+        :id="id"
+        @updateItem="$emit('updateItem', $event)"
+        @addNewItem="$emit('addNewItem', $event)"
+      />
       <div class="card-presentation-small-info flex align-center">
         <div class="card-presentation-small-info__item" v-if="lates">
           <p>{{ $t("product.latesTitle") }}</p>
@@ -95,19 +55,18 @@
 
 <script>
 import ProductProps from "@/modules/CustomProps/productProps";
+import ProductButton from "./ProductButton.vue";
 export default {
   name: "ProductCardPresentation",
   props: {
     ...ProductProps,
   },
   computed: {
-    productInCart() {
-      return this.$store.getters["shop/getProductCartById"](this.id);
-    },
     path() {
       return `/product/${this.id}`;
     },
   },
+  components: { ProductButton },
 };
 </script>
 
@@ -147,13 +106,16 @@ export default {
       }
     }
     &:hover {
-      .card-presentation-actions {
+      &::v-deep .card-actions {
         opacity: 1;
       }
     }
-    &-actions {
+    &::v-deep .card-actions {
       transition: opacity 0.3s ease;
       opacity: 0;
+      a {
+        width: 100%;
+      }
     }
     &-image {
       width: 248px;
