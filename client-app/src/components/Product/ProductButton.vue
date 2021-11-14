@@ -16,8 +16,8 @@
       >
         -
       </BaseButton>
-      <router-link :to="$t('layout.paths.cart')">
-        <BaseButton style="width: 100%">
+      <router-link :to="$t('layout.paths.cart')" style="width: 100%">
+        <BaseButton>
           <div class="flex justify-center flex-column">
             <p>
               {{ productInCart.counterAddedToCart }}

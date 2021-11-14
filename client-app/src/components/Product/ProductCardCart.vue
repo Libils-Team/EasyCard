@@ -65,6 +65,11 @@ export default {
       }
     }
     &__info {
+      &::v-deep(.card-actions) {
+        a {
+          width: 70px !important;
+        }
+      }
       .subline {
         color: $colorTextDark;
       }
