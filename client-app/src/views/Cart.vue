@@ -56,7 +56,7 @@ export default {
       }
     },
     updateItemInCart({ action, id }) {
-      this.$store.dispatch("shop/updateCartItemCounter", {
+      this.$store.dispatch("shop/updateItemCart", {
         action,
         id,
       });

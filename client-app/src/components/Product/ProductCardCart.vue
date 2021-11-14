@@ -11,38 +11,7 @@
         <p class="mb-4 subline">
           {{ priceCurrent }} {{ $t("layout.moneyTrack") }}
         </p>
-        <div class="card-product__actions flex align-center">
-          <BaseButton
-            @click.prevent="
-              $emit('updateItem', {
-                action: false,
-                id,
-              })
-            "
-            style="width: 40px"
-          >
-            -
-          </BaseButton>
-          <BaseButton style="width: 70px">
-            <div class="flex justify-center flex-column">
-              <p>
-                {{ counterAddedToCart }}
-                {{ $t("product.counterProductInCartCount") }}
-              </p>
-            </div>
-          </BaseButton>
-          <BaseButton
-            @click.prevent="
-              $emit('updateItem', {
-                action: true,
-                id,
-              })
-            "
-            style="width: 40px"
-          >
-            +
-          </BaseButton>
-        </div>
+        <ProductButton :id="id" @updateItem="$emit('updateItem', $event)" />
       </div>
     </div>
     <div class="card-product__other flex flex-column">
@@ -61,8 +30,12 @@
 
 <script>
 import ProductProps from "@/modules/CustomProps/productProps";
+import ProductButton from "@/components/Product/ProductButton";
 export default {
   name: "ProductCardCart",
+  components: {
+    ProductButton,
+  },
   props: {
     ...ProductProps,
   },
@@ -77,11 +50,6 @@ export default {
 <style lang="scss" scoped>
 .card {
   &-product {
-    &__actions::v-deep {
-      button {
-        height: 35px;
-      }
-    }
     &__delete {
       text-align: right;
       flex: 1;

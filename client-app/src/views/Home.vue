@@ -11,8 +11,8 @@
         >
           <ProductCardPresentation
             v-bind="item"
-            @updateCart="updateCart"
-            @addToCart="addToCart"
+            @updateItem="updateItem"
+            @addNewItem="addNewItem"
           />
         </BaseCarouselSlide>
       </template>
@@ -34,11 +34,11 @@ export default {
     });
   },
   methods: {
-    async addToCart(id) {
-      await this.$store.dispatch("shop/addToCart", id);
+    async addNewItem(id) {
+      await this.$store.dispatch("shop/addNewItemCart", id);
     },
-    updateCart({ action, id }) {
-      this.$store.dispatch("shop/updateCartItemCounter", {
+    updateItem({ action, id }) {
+      this.$store.dispatch("shop/updateItemCart", {
         action,
         id,
       });

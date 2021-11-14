@@ -87,7 +87,7 @@ const actions = {
     commit("SET_CATEGORIES", createrRoutesCategories(categories));
   },
 
-  async addToCart({ state, commit, dispatch }, id) {
+  async addNewItemCart({ state, commit, dispatch }, id) {
     const item = await dispatch("getProductsByIds", [id]);
     const cart = deepClone(state.cart.items);
     item[0].counterAddedToCart = 1;
@@ -118,11 +118,11 @@ const actions = {
     commit("SET_CART", updated);
   },
 
-  updateCartItemCounter({ state, commit }, { id, action }) {
+  updateItemCart({ state, commit }, { id, action }) {
     const item = state.cart.items.find((el) => el.id === id);
-    if (action && item.counterAddedToCart < 10) {
+    if (action === 'add' && item.counterAddedToCart < 10) {
       item.counterAddedToCart++;
-    } else if (!action && item.counterAddedToCart > 1) {
+    } else if (action === 'remove' && item.counterAddedToCart > 1) {
       item.counterAddedToCart--;
     }
 
