@@ -120,9 +120,9 @@ const actions = {
 
   updateItemCart({ state, commit }, { id, action }) {
     const item = state.cart.items.find((el) => el.id === id);
-    if (action === 'add' && item.counterAddedToCart < 10) {
+    if (action === "add" && item.counterAddedToCart < 10) {
       item.counterAddedToCart++;
-    } else if (action === 'remove' && item.counterAddedToCart > 1) {
+    } else if (action === "remove" && item.counterAddedToCart > 1) {
       item.counterAddedToCart--;
     }
 

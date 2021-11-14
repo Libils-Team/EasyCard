@@ -56,10 +56,8 @@ export default {
       }
     },
     updateItemInCart({ action, id }) {
-      this.$store.dispatch("shop/updateItemCart", {
-        action,
-        id,
-      });
+      // В ProductButton уже обновил
+      console.log(`Cart item ${id} is update: ${action}`);
     },
   },
   computed: {
@@ -100,7 +98,7 @@ export default {
   position: absolute;
   width: 100%;
 }
-.card-product::v-deep {
+.cart::v-deep(.card-product) {
   margin-bottom: 60px;
   &:last-child {
     margin-bottom: 0;

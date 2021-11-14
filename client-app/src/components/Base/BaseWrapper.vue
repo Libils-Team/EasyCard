@@ -33,7 +33,7 @@ export default {
 .headline {
   font-size: $textXl + 0.2;
 }
-.inner::v-deep {
+.inner {
   margin-top: 40px;
   margin-bottom: 80px;
 }

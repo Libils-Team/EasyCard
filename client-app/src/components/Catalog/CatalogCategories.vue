@@ -1,9 +1,9 @@
 <template>
   <div class="catalog">
-    <div class="catalog-content">
+    <div class="catalog-list">
       <router-link
         :to="'/catalog/' + category.id"
-        class="catalog-content__item"
+        class="catalog-list__item"
         v-for="category in categories.dropdownMenu"
         :key="'catalog_item_' + category.id"
       >
@@ -31,7 +31,7 @@ export default {
 
 <style lang="scss" scoped>
 .catalog {
-  &-content {
+  &-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     grid-gap: 1em;
