@@ -86,6 +86,7 @@ export default {
     checkoutBtnTitle: "Оформить заказ",
     noProductsInCartTitle: "Ваша корзина пуста",
     totalCartTitle: "Итого к оплате",
+    codeTitle: "арт.",
   },
   footer: {
     menu: [

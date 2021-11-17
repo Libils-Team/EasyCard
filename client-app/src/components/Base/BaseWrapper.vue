@@ -1,6 +1,6 @@
 <template>
-  <section>
-    <div class="container" v-if="headlineShow">
+  <section v-if="headlineShow">
+    <div class="container">
       <h1 class="mt-5 headline">{{ headline || $route.meta.title }}</h1>
     </div>
   </section>

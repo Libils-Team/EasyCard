@@ -1,6 +1,6 @@
 <template>
-  <BaseWrapper>
-    <BaseCarousel to="5" :dotsIs="false" v-if="list.length">
+  <BaseWrapper v-if="list.length">
+    <BaseCarousel v-bind="ops">
       <template #title>
         <h2 class="headline">{{ $t("home.popularProductsTitle") }}</h2>
       </template>
@@ -27,6 +27,11 @@ export default {
   name: "Home",
   data: () => ({
     list: [],
+    ops: {
+      directionMove: "X",
+      to: 5,
+      dotsIs: false,
+    },
   }),
   async created() {
     this.list = await this.$store.dispatch("shop/getProductsByCategory", {

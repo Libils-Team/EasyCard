@@ -74,10 +74,10 @@ export default {
 .card {
   &-presentation {
     position: relative;
-    margin: 10px 10px 10px 0;
+    padding: 10px 10px 10px 0;
     &-small-info {
       position: absolute;
-      top: 0;
+      top: 10px;
       left: 0;
       &__item {
         margin: 0 5px 5px 0;
