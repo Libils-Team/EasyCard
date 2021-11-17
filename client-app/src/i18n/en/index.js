@@ -85,6 +85,7 @@ export default {
     checkoutBtnTitle: "Checkout",
     noProductsInCartTitle: "Your cart is empty",
     totalCartTitle: "Total",
+    codeTitle: "sku.",
   },
   footer: {
     menu: [

@@ -1,7 +1,13 @@
 export default {
-  id: [Number, String],
   specifications: String,
-  title: String,
+  id: {
+    type: [String, Number],
+    required: true,
+  },
+  title: {
+    type: String,
+    required: true,
+  },
   code: {
     type: [String, Number, Boolean],
     default: "",
@@ -14,7 +20,7 @@ export default {
     type: String,
     default: "",
   },
-  imageGalery: {
+  imageGallery: {
     type: Array,
     default: null,
   },

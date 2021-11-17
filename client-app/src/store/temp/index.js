@@ -10,7 +10,7 @@ export const products = [
     description: "test",
     image:
       "https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
-    imageGalery: null,
+    imageGallery: null,
     lates: random(true),
     priceCurrent: random(),
     priceFrom: random(true),
@@ -30,7 +30,7 @@ export const products = [
     description: "test",
     image:
       "https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
-    imageGalery: null,
+    imageGallery: null,
     lates: random(true),
     priceCurrent: random(),
     priceFrom: random(true),
@@ -50,7 +50,7 @@ export const products = [
     description: "test",
     image:
       "https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
-    imageGalery: null,
+    imageGallery: null,
     lates: random(true),
     priceCurrent: random(),
     priceFrom: random(true),
@@ -71,7 +71,7 @@ export const products = [
     description: "test",
     image:
       "https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
-    imageGalery: null,
+    imageGallery: null,
     lates: random(true),
     priceCurrent: random(),
     priceFrom: random(true),
@@ -91,7 +91,7 @@ export const products = [
     description: "test",
     image:
       "https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
-    imageGalery: null,
+    imageGallery: null,
     lates: random(true),
     priceCurrent: random(),
     priceFrom: random(true),
@@ -111,7 +111,7 @@ export const products = [
     description: "test",
     image:
       "https://static-sl.insales.ru/r/OYcRTuu20pw/fit/440/0/ce/1/plain/images/products/1/2856/434785064/large_tovar__36_.jpg",
-    imageGalery: null,
+    imageGallery: null,
     lates: random(true),
     priceCurrent: random(),
     priceFrom: random(true),
@@ -132,7 +132,7 @@ export const products = [
     description: "test",
     image:
       "https://static-sl.insales.ru/r/xLcR06VC4QU/fit/440/0/ce/1/plain/images/products/1/3030/434785238/large_27.jpg",
-    imageGalery: null,
+    imageGallery: null,
     lates: random(true),
     priceCurrent: random(),
     priceFrom: random(true),
@@ -152,7 +152,7 @@ export const products = [
     description: "test",
     image:
       "https://static-sl.insales.ru/r/xLcR06VC4QU/fit/440/0/ce/1/plain/images/products/1/3030/434785238/large_27.jpg",
-    imageGalery: null,
+    imageGallery: null,
     lates: random(true),
     priceCurrent: random(),
     priceFrom: random(true),
@@ -172,7 +172,7 @@ export const products = [
     description: "test",
     image:
       "https://static-sl.insales.ru/r/xLcR06VC4QU/fit/440/0/ce/1/plain/images/products/1/3030/434785238/large_27.jpg",
-    imageGalery: null,
+    imageGallery: null,
     lates: random(true),
     priceCurrent: random(),
     priceFrom: random(true),
@@ -193,7 +193,7 @@ export const products = [
     description: "test",
     image:
       "https://static-sl.insales.ru/r/xLcR06VC4QU/fit/440/0/ce/1/plain/images/products/1/3030/434785238/large_27.jpg",
-    imageGalery: null,
+    imageGallery: null,
     lates: random(true),
     priceCurrent: random(),
     priceFrom: random(true),
@@ -213,7 +213,7 @@ export const products = [
     description: "test",
     image:
       "https://static-sl.insales.ru/r/xLcR06VC4QU/fit/440/0/ce/1/plain/images/products/1/3030/434785238/large_27.jpg",
-    imageGalery: null,
+    imageGallery: null,
     lates: random(true),
     priceCurrent: random(),
     priceFrom: random(true),
@@ -233,7 +233,7 @@ export const products = [
     description: "test",
     image:
       "https://static-sl.insales.ru/r/xLcR06VC4QU/fit/440/0/ce/1/plain/images/products/1/3030/434785238/large_27.jpg",
-    imageGalery: null,
+    imageGallery: null,
     lates: random(true),
     priceCurrent: random(),
     priceFrom: random(true),
@@ -254,7 +254,7 @@ export const products = [
     description: "test",
     image:
       "https://static-sl.insales.ru/r/xLcR06VC4QU/fit/440/0/ce/1/plain/images/products/1/3030/434785238/large_27.jpg",
-    imageGalery: null,
+    imageGallery: null,
     lates: random(true),
     priceCurrent: random(),
     priceFrom: random(true),
@@ -274,7 +274,13 @@ export const products = [
     description: "test",
     image:
       "https://static-sl.insales.ru/r/xLcR06VC4QU/fit/440/0/ce/1/plain/images/products/1/3030/434785238/large_27.jpg",
-    imageGalery: null,
+    imageGallery: [
+      "http://fullhdwallpapers.ru/image/fantasy/13969/letayushhaya-krepost.jpg",
+      "https://klike.net/uploads/posts/2019-11/1572612050_1.jpg",
+      "https://fullhdoboi.ru/wp-content/uploads/_ph/9/525138723.jpg",
+      "https://cs5.pikabu.ru/post_img/big/2014/11/29/10/1417282880_1815763534.jpg",
+      "https://img2.goodfon.ru/wallpaper/nbig/f/79/les-derevya-vetki-listya-1556.jpg",
+    ],
     lates: random(true),
     priceCurrent: random(),
     priceFrom: random(true),
@@ -294,7 +300,7 @@ export const products = [
     description: "test",
     image:
       "https://static-sl.insales.ru/r/xLcR06VC4QU/fit/440/0/ce/1/plain/images/products/1/3030/434785238/large_27.jpg",
-    imageGalery: null,
+    imageGallery: null,
     lates: random(true),
     priceCurrent: random(),
     priceFrom: random(true),
